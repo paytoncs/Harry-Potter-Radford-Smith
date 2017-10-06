@@ -20,7 +20,7 @@ public class Items implements Serializable {
         invisibility_cloak,
         potions,
         broomstick,
-        port_key;
+        portkey;
 
         public static Item getInvisibility_cloak() {
             return invisibility_cloak;
