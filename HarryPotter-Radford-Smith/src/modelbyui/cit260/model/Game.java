@@ -14,8 +14,17 @@ import java.io.Serializable;
 public class Game implements Serializable {
 
     private int totalMoves;
+    private Actor actor;
 
     public Game() {
+    }
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
     }
 
     public int getTotalMoves() {
@@ -54,6 +63,10 @@ public class Game implements Serializable {
             return false;
         }
         return true;
+    }
+
+    public Game(int totalMoves) {
+        this.totalMoves = totalMoves;
     }
 
 }

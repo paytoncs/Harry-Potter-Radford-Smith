@@ -20,10 +20,19 @@ public class Actor implements Serializable {
     private Point coordinates;
     private long totalHealth;
     private long movesLeft;
+    private Game[] game = new Game[10];
     
     
     public Actor() {
         
+    }
+
+    public Game[] getGame() {
+        return game;
+    }
+
+    public void setGame(Game[] game) {
+        this.game = game;
     }
 
     public String getName() {
