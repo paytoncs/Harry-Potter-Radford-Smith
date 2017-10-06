@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author paytonsmith
+ * @author paytonsmith & Connor Radford
  */
 public class Game implements Serializable {
 

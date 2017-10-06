@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  *
- * @author paytonsmith
+ * @author paytonsmith & Connor Radford
  */
 public class Actor implements Serializable { 
     
