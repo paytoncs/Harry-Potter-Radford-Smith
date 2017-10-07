@@ -23,6 +23,10 @@ public class Player implements Serializable {
     private Game game;
     private final Game[] games = new Game[1];
 
+    public Player() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public Game[] getGames() {
         return games;
     }

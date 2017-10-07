@@ -29,17 +29,14 @@ private Game[] games = new Game[1];
 private Scene scene;
 private ArrayList<Scene> scenes = new ArrayList<Scene>();
 
-    public <any> Spell() {
-        return scenes;
+    private Spell(String name, String description, Game game, Scene scene) {
+        this.name = name;
+        this.description = description;
+        this.game = game;
+        this.scene = scene;
     }
 
-    public void setScenes(<any> scenes) {
-        this.scenes = scenes;
-    }
-
-
-
-    public Scene getScene() {
+    private Scene getScene() {
         return scene;
     }
 
@@ -47,6 +44,15 @@ private ArrayList<Scene> scenes = new ArrayList<Scene>();
         this.scene = scene;
     }
 
+    public ArrayList<Scene> getScenes() {
+        return scenes;
+    }
+
+    public void setScenes(ArrayList<Scene> scenes) {
+        this.scenes = scenes;
+    }
+
+  
 
 
     public Game[] getGames() {
