@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author paytonsmith & Connor Radford
  */
 
-    public enum Item(){
+    public enum Item{
     
 
     /*    public enum Item {*/        
