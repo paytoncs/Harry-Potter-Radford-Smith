@@ -7,6 +7,7 @@ package modelbyui.cit260.model;
 
 import java.awt.Point;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -21,6 +22,43 @@ public class Actor implements Serializable {
     private long totalHealth;
     private long movesLeft;
     private Game[] game = new Game[10];
+    private Player player;
+    private final Player[] players = new Player[1];
+    private Location location;
+    private final ArrayList<Location> locations = new ArrayList<Location>();
+
+    public ArrayList<Location> getLocations() {
+        return locations;
+    }
+    
+    
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+    
+    
+
+    public Player[] getPlayers() {
+        return players;
+    }
+    
+    
+    
+    
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
+    
     
     
     public Actor() {

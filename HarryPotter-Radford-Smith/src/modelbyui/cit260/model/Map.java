@@ -18,6 +18,23 @@ public class Map implements Serializable {
     private String description;
     private Point rowCount;
     private Point columnCount;
+    private Game game;
+    private final Game[] games = new Game[1];
+
+    public Game[] getGames() {
+        return games;
+    }
+    
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+    
+    
 
     public Map(String description, Point rowCount, Point columnCount) {
         this.description = description;

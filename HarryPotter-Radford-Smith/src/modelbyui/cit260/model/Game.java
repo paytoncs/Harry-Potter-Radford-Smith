@@ -6,6 +6,7 @@
 package modelbyui.cit260.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,6 +16,104 @@ public class Game implements Serializable {
 
     private int totalMoves;
     private Actor actor;
+    private Player player;
+    private ArrayList<Player> players = new ArrayList<Player>();
+    private Map map;
+    private Map[] maps = new Map[1];
+    private Item item;
+    private ArrayList<Item> items = new ArrayList<Item>();
+    private Spell spell;
+    private ArrayList<Spell> spells = new ArrayList<Spell>();
+
+    public ArrayList<Spell> getSpells() {
+        return spells;
+    }
+
+    public void setSpells(ArrayList<Spell> spells) {
+        this.spells = spells;
+    }
+    
+    
+
+    public Spell getSpell() {
+        return spell;
+    }
+
+    public void setSpell(Spell spell) {
+        this.spell = spell;
+    }
+    
+    
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+    
+    
+
+    /**
+     *
+     * @return
+     */
+    /*private*/ 
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+    
+    
+    
+    
+    
+    
+
+    public Map[] getMaps() {
+        return maps;
+    }
+
+    public void setMaps(Map[] maps) {
+        this.maps = maps;
+    }
+    
+    
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    
+    
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(ArrayList<Player> players) {
+        this.players = players;
+    }
+    
+    
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
+    
 
     public Game() {
     }

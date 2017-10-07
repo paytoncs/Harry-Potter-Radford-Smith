@@ -21,6 +21,71 @@ public class Location implements Serializable {
     private Point visited;
     private Int movesRemainingInGame;
     private String runAway;
+    private Actor actor;
+    private Actor[] actors = new Actor[1];
+    private Scene scene;
+    private Scene[] scenes = new Scene[1];
+    private Map map;
+    private Map[] maps = new Map[1];
+
+    public Map[] getMaps() {
+        return maps;
+    }
+
+    public void setMaps(Map[] maps) {
+        this.maps = maps;
+    }
+    
+    
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    
+    
+
+    public Scene[] getScenes() {
+        return scenes;
+    }
+
+    public void setScenes(Scene[] scenes) {
+        this.scenes = scenes;
+    }
+    
+    
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+    
+    
+
+    public Actor[] getActors() {
+        return actors;
+    }
+
+    public void setActors(Actor[] actors) {
+        this.actors = actors;
+    }
+    
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
+    
+    
 
     public Location(){
     }

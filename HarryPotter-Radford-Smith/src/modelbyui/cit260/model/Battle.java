@@ -6,16 +6,41 @@
 package modelbyui.cit260.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
  *
  * @author Radford
  */
-public class BattleScene implements Serializable{
+public class Battle implements Serializable{
     
     public String enemyType;
     public String enemyWeakness;
+    private Item item;
+    private ArrayList<Item> items = new ArrayList<Item>();
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+    
+    
+    
+    
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+    
+    
 
     public String getEnemyType() {
         return enemyType;
@@ -33,7 +58,7 @@ public class BattleScene implements Serializable{
         this.enemyWeakness = enemyWeakness;
     }
 
-    public BattleScene(String enemyType, String enemyWeakness) {
+    public Battle(String enemyType, String enemyWeakness) {
         this.enemyType = enemyType;
         this.enemyWeakness = enemyWeakness;
     }
@@ -57,7 +82,7 @@ public class BattleScene implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final BattleScene other = (BattleScene) obj;
+        final Battle other = (Battle) obj;
         if (!Objects.equals(this.enemyType, other.enemyType)) {
             return false;
         }

@@ -2,6 +2,7 @@ package modelbyui.cit260.model;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /*
@@ -17,6 +18,41 @@ import java.util.Objects;
 public class Player implements Serializable {
    
     private String name;
+    private Actor actor;
+    private final ArrayList<Actor> actors = new ArrayList<Actor>();
+    private Game game;
+    private final Game[] games = new Game[1];
+
+    public Game[] getGames() {
+        return games;
+    }
+    
+    
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+    
+    
+
+    public ArrayList<Actor> getActors() {
+        return actors;
+    }
+    
+    
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
+    
+    
 
     public Player(String name) {
         this.name = name;

@@ -10,13 +10,11 @@ import java.io.Serializable;
  *
  * @author paytonsmith & Connor Radford
  */
-public class Items implements Serializable {
 
-    public Items() {
-    }
+    public enum Item(){
+    
 
-    public enum Item {
-        
+    /*    public enum Item {*/        
         Invisibility_Cloak("Invisibility Cloak", "(1)", "Turns character "
                 + "invisible for certain creatures."),
         Potions("Potion", "(1)", "Replenish health to your character"),
@@ -26,6 +24,50 @@ public class Items implements Serializable {
         private final String itemType;
         private final String itemQuantity;
         private final String requiredItem;
+        private Game game;
+        private Game[] games = new Game[1];
+        private Battle battle;
+        private Battle[] battles = new Battle[1];
+
+    public Battle[] getBattles() {
+        return battles;
+    }
+
+    public void setBattles(Battle[] battles) {
+        this.battles = battles;
+    }
+        
+        
+
+    public Battle getBattle() {
+        return battle;
+    }
+
+    public void setBattle(Battle battle) {
+        this.battle = battle;
+    }
+        
+        
+
+    public Game[] getGames() {
+        return games;
+    }
+
+    public void setGames(Game[] games) {
+        this.games = games;
+    }
+        
+        
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+        
+        
 
             Item(String itemType, String itemQuantity, String requiredItem) {
                 this.itemType = itemType;
@@ -52,4 +94,4 @@ public class Items implements Serializable {
         
         
     }
-}
+

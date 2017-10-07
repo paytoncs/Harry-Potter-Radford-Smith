@@ -6,6 +6,7 @@
 package modelbyui.cit260.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,6 +18,94 @@ public class Scene implements Serializable {
     private String description;
     private String displaySymbol;
     private String obstacleEncounter;
+    private Location location;
+    private ArrayList<Location> locations = new ArrayList<Location>();
+    private Spell spell;
+    private ArrayList<Spell> spells = new ArrayList<Spell>();
+    private Encounter encounter;
+    private Encounter[] encounters = new Encounter[1];
+    private Battle battle;
+    private Battle[] battles = new Battle[1];
+
+    public Battle[] getBattles() {
+        return battles;
+    }
+
+    public void setBattles(Battle[] battles) {
+        this.battles = battles;
+    }
+    
+    
+
+    public Battle getBattle() {
+        return battle;
+    }
+
+    public void setBattle(Battle battle) {
+        this.battle = battle;
+    }
+    
+    
+
+    public Encounter[] getEncounters() {
+        return encounters;
+    }
+
+    public void setEncounters(Encounter[] encounters) {
+        this.encounters = encounters;
+    }
+    
+    
+
+    public Encounter getEncounter() {
+        return encounter;
+    }
+
+    public void setEncounter(Encounter encounter) {
+        this.encounter = encounter;
+    }
+    
+    
+
+    public ArrayList<Spell> getSpells() {
+        return spells;
+    }
+
+    public void setSpells(ArrayList<Spell> spells) {
+        this.spells = spells;
+    }
+    
+    
+
+    public Spell getSpell() {
+        return spell;
+    }
+
+    public void setSpell(Spell spell) {
+        this.spell = spell;
+    }
+    
+    
+
+    public ArrayList<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(ArrayList<Location> locations) {
+        this.locations = locations;
+    }
+    
+    
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+    
+    
 
     public String getDescription() {
         return description;

@@ -12,10 +12,32 @@ import java.util.Objects;
  *
  * @author Radford
  */
-public class EncounterScene implements Serializable{
+public class Encounter implements Serializable{
     
    private String encounterType;
    private String getSolution;
+   private Scene scene;
+   private Scene[] scenes = new Scene[1];
+
+    public Scene[] getScenes() {
+        return scenes;
+    }
+
+    public void setScenes(Scene[] scenes) {
+        this.scenes = scenes;
+    }
+   
+   
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+   
+   
 
     public String getEncounterType() {
         return encounterType;
@@ -33,7 +55,7 @@ public class EncounterScene implements Serializable{
         this.getSolution = getSolution;
     }
 
-    public EncounterScene(String encounterType, String getSolution) {
+    public Encounter(String encounterType, String getSolution) {
         this.encounterType = encounterType;
         this.getSolution = getSolution;
     }
@@ -57,7 +79,7 @@ public class EncounterScene implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final EncounterScene other = (EncounterScene) obj;
+        final Encounter other = (Encounter) obj;
         if (!Objects.equals(this.encounterType, other.encounterType)) {
             return false;
         }
