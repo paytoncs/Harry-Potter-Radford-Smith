@@ -16,6 +16,7 @@ import java.util.Objects;
  */
 public class Actor implements Serializable { 
     
+    
     private String name;
     private String description;
     private Point coordinates;

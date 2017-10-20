@@ -15,6 +15,7 @@ import java.util.Objects;
  */
 public class Map implements Serializable {
 
+    
     private String description;
     private Point rowCount;
     private Point columnCount;
