@@ -5,6 +5,8 @@
  */
 package harrypotter.radford.smith;
 
+import citbyui.cit260.harrypotter.view.StartProgramView;
+
 /**
  *
  * @author Radford
@@ -15,7 +17,8 @@ public class HarryPotterRadfordSmith {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+      StartProgramView startProgramView = new StartProgramView();
+      startProgramView.displayStartProgramView();
     }
     
 }
