@@ -5,9 +5,11 @@
  */
 package citbyui.cit260.harrypotter.view;
 
+import byui.cit260.harrypotter.control.GameControl;
 import static byui.cit260.harrypotter.control.GameControl.savePlayer;
 import static java.lang.Compiler.command;
 import java.util.Scanner;
+import modelbyui.cit260.model.Player;
 
 /**
  *
@@ -33,9 +35,9 @@ public class StartProgramView {
 
         String[] inputs = new String[1];
 
-        System.out.println("*************************************" + 
-                "\n* Welcome to The Harry Potter Game. *" + 
-                "\n*************************************");
+        System.out.println("*************************************"
+                + "\n* Welcome to The Harry Potter Game. *"
+                + "\n*************************************");
         boolean valid = false;
         while (valid == false) {
             System.out.println("Enter the player's name:");
@@ -63,13 +65,13 @@ public class StartProgramView {
             System.out.println("Could not create player. " + "Enter a different name.");
             return false;
         }
-
+        System.out.println("*** savePlayer() called ***");
         System.out.println("================================================="
                 + "\nWelcome to the game " + playerName + ". \nWe hope you have a lot of fun!"
                 + "\n=================================================");
-   
-        return true;
+        System.out.println("***displayMainMenuView() called");
 
+        return true;
     }
 
 }
