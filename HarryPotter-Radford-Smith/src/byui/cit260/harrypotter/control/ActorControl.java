@@ -38,4 +38,18 @@ public class ActorControl {
     }
 
 
+    public static double totalHealthRemaining(double currentHealth, double hitsTaken) {
+ 
+        if (currentHealth > 100) { //Greater than 100
+            return -1;
+        }
+ 
+        if (hitsTaken > 3) { //Greater than 3
+            return -1;
+        }
+        double hitDamage = 10;
+        double totalDamageTaken = hitsTaken * hitDamage;
+        currentHealth = currentHealth - totalDamageTaken;
+        return currentHealth;   
+    }
 }
