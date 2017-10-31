@@ -6,6 +6,8 @@
 package harrypotter.radford.smith;
 
 import citbyui.cit260.harrypotter.view.StartProgramView;
+import modelbyui.cit260.model.Game;
+import modelbyui.cit260.model.Player;
 
 /**
  *
@@ -16,9 +18,33 @@ public class HarryPotterRadfordSmith {
     /**
      * @param args the command line arguments
      */
+    private static Game currentGame = null;
+    private static Player player = null;
+    
     public static void main(String[] args) {
       StartProgramView startProgramView = new StartProgramView();
       startProgramView.displayStartProgramView();
+      
+      
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        HarryPotterRadfordSmith.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        HarryPotterRadfordSmith.player = player;
     }
     
-}
+  
+    }
+    
+

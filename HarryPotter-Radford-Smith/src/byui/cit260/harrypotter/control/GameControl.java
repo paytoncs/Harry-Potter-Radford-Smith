@@ -5,6 +5,7 @@
  */
 package byui.cit260.harrypotter.control;
 
+import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import modelbyui.cit260.model.Player;
 
 /**
@@ -12,8 +13,17 @@ import modelbyui.cit260.model.Player;
  * @author paytonsmith
  */
 public class GameControl {
-    public static Player savePlayer (String name) {
-        System.out.println("*** savePlayer() called ***");
-        return new Player();
+
+
+    public static Player savePlayer(String playerName) {
+        if( playerName == null || playerName.length() < 1){
+           return null; 
+        }
+        Player player = new Player(playerName);
+        player.setName(playerName);
+        HarryPotterRadfordSmith.setPlayer(player);
+        return player;
     }
+    
+   
 }

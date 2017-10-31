@@ -59,17 +59,17 @@ public class StartProgramView {
 
     private boolean doAction(String[] inputs) {
         String playerName = inputs[0];
-        String savePlayer = null;
-        String player = savePlayer;
-        if (playerName == null) {
+        Player player = GameControl.savePlayer(playerName);
+        if (player == null) {
             System.out.println("Could not create player. " + "Enter a different name.");
             return false;
         }
-        System.out.println("*** savePlayer() called ***");
+
         System.out.println("================================================="
                 + "\nWelcome to the game " + playerName + ". \nWe hope you have a lot of fun!"
                 + "\n=================================================");
-        System.out.println("***displayMainMenuView() called");
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMainMenuView();
 
         return true;
     }
