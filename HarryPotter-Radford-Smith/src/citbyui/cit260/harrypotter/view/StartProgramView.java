@@ -13,7 +13,7 @@ import modelbyui.cit260.model.Player;
 
 /**
  *
- * @author paytonsmith
+ * @author paytonsmith and Connor
  */
 public class StartProgramView {
 
@@ -26,7 +26,6 @@ public class StartProgramView {
             }
             endView = doAction(inputs);
         } while (endView != true);
-
     }
 
     private String[] getInputs() {
