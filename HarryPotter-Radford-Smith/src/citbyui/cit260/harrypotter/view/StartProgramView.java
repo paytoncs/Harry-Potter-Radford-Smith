@@ -6,14 +6,12 @@
 package citbyui.cit260.harrypotter.view;
 
 import byui.cit260.harrypotter.control.GameControl;
-import static byui.cit260.harrypotter.control.GameControl.savePlayer;
-import static java.lang.Compiler.command;
 import java.util.Scanner;
 import modelbyui.cit260.model.Player;
 
 /**
  *
- * @author paytonsmith
+ * @author paytonsmith and Connor
  */
 public class StartProgramView {
 
@@ -26,7 +24,6 @@ public class StartProgramView {
             }
             endView = doAction(inputs);
         } while (endView != true);
-
     }
 
     private String[] getInputs() {
