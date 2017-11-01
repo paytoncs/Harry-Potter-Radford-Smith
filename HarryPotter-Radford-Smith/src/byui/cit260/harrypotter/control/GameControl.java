@@ -7,6 +7,7 @@ package byui.cit260.harrypotter.control;
 
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import modelbyui.cit260.model.Player;
+import sun.audio.AudioPlayer;
 
 /**
  *
@@ -25,5 +26,8 @@ public class GameControl {
         return player;
     }
     
-   
+    public static void createNewGame (Player player){
+        System.out.println("createNewGame worked");
+
+    }
 }
