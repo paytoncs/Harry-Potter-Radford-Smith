@@ -12,7 +12,7 @@ package citbyui.cit260.harrypotter.view;
 class GameMenuView {
 
     void displayGameMenuView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("displayGameMenuView() was called");
     }
     
 }

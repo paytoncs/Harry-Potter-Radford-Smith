@@ -40,8 +40,7 @@ class MainMenuView {
         while (valid == false) {
             System.out.println("G - Start Game");
             System.out.println("H - Get Help");
-            System.out.println("S -Save Game");
-            System.out.println("E - Exit");
+            System.out.println("R - Restart Game");
             Scanner keyboard = new Scanner(System.in);
             inputs[0] = keyboard.nextLine();
             inputs[0].trim();
@@ -57,17 +56,19 @@ class MainMenuView {
 
     }
 
-    private boolean doAction(String[] inputs) {
+    static boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
         menuItem.toUpperCase();
-        switch (inputs[0]) {
+        switch (inputs[0].toUpperCase()) {
             case "G":
                 startNewGame();
-                return true;
+                return false;
             case "H":
                 getHelp();
-                return true;
-           
+                return false;
+            case "R":
+                restartGame();
+                return false;
             default:
                 System.out.println("Invalid menu item");
                 break;
@@ -77,7 +78,6 @@ class MainMenuView {
 
     public static void startNewGame() {
         GameControl.createNewGame(HarryPotterRadfordSmith.getPlayer());
-
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenuView();
     }
@@ -89,9 +89,7 @@ class MainMenuView {
     }
 
     public static void getHelp() {
-    HelpMenuView helpMenuView = new HelpMenuView();
-    helpMenuView.displayHelpMenuView();
-}
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayHelpMenuView();
     }
-
-
+}
