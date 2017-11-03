@@ -11,9 +11,9 @@ import java.util.Scanner;
  *
  * @author Radford
  */
-class SelectSpellView {
+class SelectItemView {
 
-    void displaySelectSpellView() {
+    void displaySelectItemView() {
         boolean endView = false;
         do {
             String[] inputs = this.getInputs();
@@ -30,18 +30,18 @@ class SelectSpellView {
         String[] inputs = new String[1];
 
         System.out.println("*************************************"
-                + "\n* Spells List *"
+                + "\n* Item List *"
                 + "\n*************************************");
         boolean valid = false;
         while (valid == false) {
-            System.out.println("* Lumos - Use this spell to light the area *");
-            System.out.println("* Expecto Patronum - Use to defend against certain creature. *");
-            System.out.println("* Incendio - Used for attacking certain creatures *");
-            System.out.println("* Wingardium Leviosa - Helps lift objects *");
-            System.out.println("* Accio - Helps retrieve certain items *");
+            System.out.println("* Invisibility Cloak - Helps to sneak past enemies  *");
+            System.out.println("* Chocolate Frog - Recovers health *");
+            // Will be used later to display total amount of frogs in inventory
+            
+            System.out.println("* Broomstick - Helps avoid obsticles *");
             System.out.println("*************************************"
-                + "\n* E - Exit Spells List *"
-                + "\n*************************************");
+                    + "\n* E - Exit Items List *"
+                    + "\n*************************************");
             Scanner keyboard = new Scanner(System.in);
             inputs[0] = keyboard.nextLine();
             inputs[0].trim();

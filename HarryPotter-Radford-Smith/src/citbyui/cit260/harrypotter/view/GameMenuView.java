@@ -25,7 +25,7 @@ class GameMenuView {
         } while (endView != true);
     }
 
-    private String[] getInputs() {
+    static String[] getInputs() {
         String[] inputs = new String[1];
 
         System.out.println("*************************************"
@@ -33,7 +33,8 @@ class GameMenuView {
                 + "\n*************************************");
         boolean valid = false;
         while (valid == false) {
-            System.out.println("S - Spell options");
+            System.out.println("S - Spells List");
+            System.out.println("I - Items List");
             Scanner keyboard = new Scanner(System.in);
             inputs[0] = keyboard.nextLine();
             inputs[0].trim();
@@ -46,12 +47,15 @@ class GameMenuView {
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    static boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
         menuItem.toUpperCase();
         switch (inputs[0].toUpperCase()) {
             case "S":
                 spellList();
+                return true;
+            case "I":
+                itemList();
                 return true;
             default:
                 System.out.println("Invalid menu item");
@@ -64,5 +68,10 @@ class GameMenuView {
         SelectSpellView selectSpellView = new SelectSpellView();
         selectSpellView.displaySelectSpellView();
     }
-}
 
+    public static void itemList() {
+        SelectItemView selectItemView = new SelectItemView();
+        selectItemView.displaySelectItemView();
+    }
+
+}
