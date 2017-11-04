@@ -72,13 +72,12 @@ class GameMenuView {
             case "D":
                 addHealthItemsToHealth(0, 0);
                 return false;
-                 case "S":
+            case "S":
                 spellList();
                 return true;
             case "I":
                 itemList();
                 return true;
- 
             default:
                 System.out.println("Invalid menu item");
                 break;
