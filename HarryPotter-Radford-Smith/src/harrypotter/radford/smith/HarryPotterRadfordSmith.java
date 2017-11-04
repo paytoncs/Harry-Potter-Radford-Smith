@@ -5,6 +5,7 @@
  */
 package harrypotter.radford.smith;
 
+import citbyui.cit260.harrypotter.view.ItemMenuView;
 import citbyui.cit260.harrypotter.view.StartProgramView;
 import modelbyui.cit260.model.Game;
 import modelbyui.cit260.model.Player;
@@ -25,7 +26,8 @@ public class HarryPotterRadfordSmith {
       StartProgramView startProgramView = new StartProgramView();
       startProgramView.displayStartProgramView();
       
-      
+      ItemMenuView itemMenuView = new ItemMenuView();
+      itemMenuView.displayItemMenuView();
     }
 
     public static Game getCurrentGame() {
@@ -43,7 +45,12 @@ public class HarryPotterRadfordSmith {
     public static void setPlayer(Player player) {
         HarryPotterRadfordSmith.player = player;
     }
+    private long currentHealth;
     
+      public long getCurrentHealth() {
+        return currentHealth;
+    }
+
   
     }
     

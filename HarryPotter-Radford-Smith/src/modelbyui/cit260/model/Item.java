@@ -20,6 +20,22 @@ import java.io.Serializable;
         Potions("Potion", "(1)", "Replenish health to your character"),
         Broomstick("Broomstick", "(1)", "Character can fly over an obsticle."),
         Port_Key("Port Key", "(1)", "Teleports character to random location");
+
+    public static void useMaraudersMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void useInvisibilityCloak() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void eatChocolateFrog() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void useBroomstick() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
         
         private final String itemType;
         private final String itemQuantity;

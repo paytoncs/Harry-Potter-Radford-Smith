@@ -5,6 +5,8 @@
  */
 package byui.cit260.harrypotter.control;
 
+import modelbyui.cit260.model.Player;
+
 /**
  *
  * @author paytonsmith
@@ -51,5 +53,9 @@ public class ActorControl {
         double totalDamageTaken = hitsTaken * hitDamage;
         currentHealth = currentHealth - totalDamageTaken;
         return currentHealth;   
+    }
+
+    public static void addHealthItemsToHealth(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

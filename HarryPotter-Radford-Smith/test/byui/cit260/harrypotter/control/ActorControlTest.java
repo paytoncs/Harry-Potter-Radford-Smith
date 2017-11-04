@@ -68,7 +68,7 @@ public class ActorControlTest {
         assertEquals(expResult, result, 0.0);
         
         
-         System.out.println("Test 2");
+         System.out.println("Test 7");
         healthItemQuantity = 1;
         currentHealth = 90;
         expResult = 100;
@@ -76,5 +76,51 @@ public class ActorControlTest {
         assertEquals(expResult, result, 0.0);
         
     }
-    
+   
+    /**
+*
+* @author Radford
+*/
+   
+ 
+    /**
+     * Test of totalHealthRemaining method, of class ActorControl.
+     */
+    @Test
+    public void testTotalHealthRemaining() {
+        System.out.println("Test Case 1");
+        double currentHealth = 60;
+        double hitsTaken = 2;
+        double expResult = 40;
+        double result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        assertEquals(expResult, result, 0.0);
+       
+        System.out.println("Test Case 2");
+        currentHealth = 101;
+        hitsTaken = 0;
+        expResult = -1;
+        result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        assertEquals(expResult, result, 0.0);
+       
+        System.out.println("Test Case 3");
+        currentHealth = 100;
+        hitsTaken = 4;
+        expResult = -1;
+        result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        assertEquals(expResult, result, 0.0);
+       
+        System.out.println("Test Case 4");
+        currentHealth = 100;
+        hitsTaken = 3;
+        expResult = 70;
+        result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        assertEquals(expResult, result, 0.0);
+       
+        System.out.println("Test Case 5");
+        currentHealth = 10;
+        hitsTaken = 1;
+        expResult = 0;
+        result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        assertEquals(expResult, result, 0.0);
+}
 }

@@ -21,6 +21,8 @@ public class Actor implements Serializable {
     private String description;
     private Point coordinates;
     private long totalHealth;
+    private long currentHealth;
+    private long healthItemQuantity;
     private long movesLeft;
     private Game[] game = new Game[10];
     private Player player;
@@ -30,6 +32,22 @@ public class Actor implements Serializable {
 
     public ArrayList<Location> getLocations() {
         return locations;
+    }
+
+    public long getCurrentHealth() {
+        return currentHealth;
+    }
+
+    public long getHealthItemQuantity() {
+        return healthItemQuantity;
+    }
+
+    public void setHealthItemQuantity(long healthItemQuantity) {
+        this.healthItemQuantity = healthItemQuantity;
+    }
+
+    public void setCurrentHealth(long currentHealth) {
+        this.currentHealth = currentHealth;
     }
     
     
