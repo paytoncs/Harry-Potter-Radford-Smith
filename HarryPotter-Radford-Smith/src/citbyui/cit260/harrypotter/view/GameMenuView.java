@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author paytonsmith
+ * @author paytonsmith and Connorradford
  */
 class GameMenuView {
 
@@ -29,7 +29,8 @@ class GameMenuView {
 
     }
 
-    private String[] getInputs() {
+
+    static String[] getInputs() {
 
         String[] inputs = new String[1];
 
@@ -39,8 +40,8 @@ class GameMenuView {
         boolean valid = false;
         while (valid == false) {
             System.out.println("V - View Map");
-            System.out.println("I - Item Inventory");
-            System.out.println("S - Choose Spell");
+            System.out.println("I - Items List");
+            System.out.println("S - Spells List");
             System.out.println("M - Move to new location");
             System.out.println("R - Run away");
             System.out.println("W - What should I do?");
@@ -71,6 +72,12 @@ class GameMenuView {
             case "D":
                 addHealthItemsToHealth(0, 0);
                 return false;
+                 case "S":
+                spellList();
+                return true;
+            case "I":
+                itemList();
+                return true;
  
             default:
                 System.out.println("Invalid menu item");
@@ -86,4 +93,14 @@ class GameMenuView {
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenuView();
  }
+  public static void spellList() {
+        SelectSpellView selectSpellView = new SelectSpellView();
+        selectSpellView.displaySelectSpellView();
+    }
+
+    public static void itemList() {
+        SelectItemView selectItemView = new SelectItemView();
+        selectItemView.displaySelectItemView();
+    }
+
 }
