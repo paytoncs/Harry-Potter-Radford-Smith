@@ -30,7 +30,7 @@ class GameMenuView {
     }
 
 
-    static String[] getInputs() {
+    public String[] getInputs() {
 
         String[] inputs = new String[1];
 

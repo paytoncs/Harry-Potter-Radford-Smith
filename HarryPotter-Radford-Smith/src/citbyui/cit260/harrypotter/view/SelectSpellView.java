@@ -63,7 +63,6 @@ class SelectSpellView {
         switch (inputs[0].toUpperCase()) {
             case "E":
                 GameMenuView gameMenuView = new GameMenuView();
-                GameMenuView.getInputs();
                 return true;
             default:
                 System.out.println("Invalid menu item");

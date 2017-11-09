@@ -24,7 +24,7 @@ public class HarryPotterRadfordSmith {
     
     public static void main(String[] args) {
       StartProgramView startProgramView = new StartProgramView();
-      startProgramView.displayStartProgramView();
+      startProgramView.display();
       
       ItemMenuView itemMenuView = new ItemMenuView();
       itemMenuView.displayItemMenuView();

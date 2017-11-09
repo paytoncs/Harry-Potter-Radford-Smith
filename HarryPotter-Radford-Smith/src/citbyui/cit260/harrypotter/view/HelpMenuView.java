@@ -11,60 +11,36 @@ import java.util.Scanner;
  *
  * @author paytonsmith
  */
-class HelpMenuView {
+class HelpMenuView extends View {
 
-    void displayHelpMenuView() {
-        boolean endView = false;
-        do {
-            String[] inputs = this.getInputs();
-            if (inputs == null || inputs[0].toUpperCase().equals("E")) {
-                return;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
-
-    }
-
-    private String[] getInputs() {
+    public String[] getInputs() {
 
         String[] inputs = new String[1];
 
         System.out.println("*************************************"
                 + "\n* Please select a help menu item. *"
                 + "\n*************************************");
-        boolean valid = false;
-        while (valid == false) {
-            System.out.println("G - What is the goal of the game?");
-            System.out.println("M - How to move");
-            System.out.println("E - Exit");
-            Scanner keyboard = new Scanner(System.in);
-            inputs[0] = keyboard.nextLine();
-            inputs[0].trim();
-            if (inputs.length < 1) {
-                System.out.println("**** You must enter a valid Command. ***");
-                continue;
-            }
-            valid = true;
-
-        }
-
+        System.out.println("G - What is the goal of the game?");
+        System.out.println("M - How to move");
+        System.out.println("E - Exit");
+        inputs[0] = this.getInput("Enter a menu item.");
         return inputs;
 
     }
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
         menuItem.toUpperCase();
         switch (inputs[0].toUpperCase()) {
             case "G":
-                System.out.println("The goal of this game is to collect the items to heal Hagrid from his injury.");
+                System.out.println("\nThe goal of this game is to collect the items to heal Hagrid from his injury.\n");
                 return true;
             case "M":
-                System.out.println("You will need to press a command key to choose the direciton in which you will move.");
+                System.out.println("\nYou will need to press a command key to choose the direction in which you will move.\n");
                 return true;
             case "E":
                 MainMenuView mainMenuView = new MainMenuView();
-                MainMenuView.doAction(inputs);
                 return true;
             default:
                 System.out.println("Invalid menu item");
@@ -74,5 +50,3 @@ class HelpMenuView {
     }
 
 }
-
-

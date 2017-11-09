@@ -14,49 +14,27 @@ import java.util.Scanner;
  *
  * @author paytonsmith
  */
-class MainMenuView {
+class MainMenuView extends View{
 
-    public void displayMainMenuView() {
 
-        boolean endView = false;
-        do {
-            String[] inputs = this.getInputs();
-            if (inputs == null || inputs[0].toUpperCase().equals("Q")) {
-                return;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
-
-    }
-
-    private String[] getInputs() {
+@Override
+    public String[] getInputs() {
 
         String[] inputs = new String[1];
 
         System.out.println("*************************************"
                 + "\n* Please select a menu item. *"
                 + "\n*************************************");
-        boolean valid = false;
-        while (valid == false) {
-            System.out.println("G - Start Game");
+        
+           System.out.println("G - Start Game");
             System.out.println("H - Get Help");
             System.out.println("R - Restart Game");
-            Scanner keyboard = new Scanner(System.in);
-            inputs[0] = keyboard.nextLine();
-            inputs[0].trim();
-            if (inputs.length < 1) {
-                System.out.println("**** You must enter a value. ***");
-                continue;
-            }
-            valid = true;
-
-        }
-
+         inputs[0] = this.getInput("Enter a menu item.");
         return inputs;
 
     }
-
-    static boolean doAction(String[] inputs) {
+@Override
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
         menuItem.toUpperCase();
         switch (inputs[0].toUpperCase()) {
@@ -90,6 +68,6 @@ class MainMenuView {
 
     public static void getHelp() {
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 }
