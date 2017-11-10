@@ -29,7 +29,7 @@ class MainMenuView extends View{
            System.out.println("G - Start Game");
             System.out.println("H - Get Help");
             System.out.println("R - Restart Game");
-         inputs[0] = this.getInput("Enter a menu item.");
+         inputs[0] = this.getInput("");
         return inputs;
 
     }
