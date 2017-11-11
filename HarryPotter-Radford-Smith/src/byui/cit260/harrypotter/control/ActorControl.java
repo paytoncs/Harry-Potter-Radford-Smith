@@ -39,7 +39,7 @@ public class ActorControl {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
+    // Connor Radford
     public static double totalHealthRemaining(double currentHealth, double hitsTaken) {
  
         if (currentHealth > 100) { //Greater than 100

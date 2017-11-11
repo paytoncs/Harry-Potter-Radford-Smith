@@ -29,7 +29,6 @@ class GameMenuView {
 
     }
 
-
     public String[] getInputs() {
 
         String[] inputs = new String[1];
@@ -76,6 +75,12 @@ class GameMenuView {
             case "I":
                 itemList();
                 return false;
+            case "V":
+                mapView();
+                return false;
+            case "H":
+                healthView();
+                return false;
             default:
                 System.out.println("Invalid menu item");
                 break;
@@ -83,14 +88,13 @@ class GameMenuView {
         return false;
     }
 
-   
-   
- public static void startNewGame() {
+    public static void startNewGame() {
         ActorControl.addHealthItemsToHealth(HarryPotterRadfordSmith.getPlayer());
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenuView();
- }
-  public static void spellList() {
+    }
+
+    public static void spellList() {
         SelectSpellView selectSpellView = new SelectSpellView();
         selectSpellView.displaySelectSpellView();
     }
@@ -98,6 +102,16 @@ class GameMenuView {
     public static void itemList() {
         SelectItemView selectItemView = new SelectItemView();
         selectItemView.displaySelectItemView();
+    }
+
+    public static void mapView() {
+        SelectMapView selectMapView = new SelectMapView();
+        selectMapView.displaySelectMapView();
+    }
+    
+    public static void healthView() {
+        SelectHealthView selectHealthView = new SelectHealthView();
+        selectHealthView.displaySelectHealthView();
     }
 
 }
