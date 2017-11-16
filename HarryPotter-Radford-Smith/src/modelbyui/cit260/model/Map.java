@@ -17,10 +17,23 @@ public class Map implements Serializable {
 
     
     private String description;
-    private Point rowCount;
-    private Point columnCount;
+    private int rowCount;
+    private int columnCount;
     private Game game;
     private final Game[] games = new Game[1];
+    private Location[][] locations;
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+
+    public Map() {
+        
+    }
 
     public Game[] getGames() {
         return games;
@@ -37,7 +50,7 @@ public class Map implements Serializable {
     
     
 
-    public Map(String description, Point rowCount, Point columnCount) {
+    public Map(String description, int rowCount, int columnCount) {
         this.description = description;
         this.rowCount = rowCount;
         this.columnCount = columnCount;
@@ -48,11 +61,11 @@ public class Map implements Serializable {
         return description;
     }
 
-    public Point getRowCount() {
+    public int getRowCount() {
         return rowCount;
     }
 
-    public Point getColumnCount() {
+    public int getColumnCount() {
         return columnCount;
     }
 
@@ -60,11 +73,11 @@ public class Map implements Serializable {
         this.description = description;
     }
 
-    public void setRowCount(Point rowCount) {
+    public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
     }
 
-    public void setColumnCount(Point columnCount) {
+    public void setColumnCount(int columnCount) {
         this.columnCount = columnCount;
     }
 

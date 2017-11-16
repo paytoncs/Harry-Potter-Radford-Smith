@@ -46,7 +46,7 @@ class GameMenuView {
             System.out.println("H - What’s my health?");
             System.out.println("T - How much time do I have? ");
             System.out.println("H - Help");
-            System.out.println("V - Quit");
+            System.out.println("Q - Quit");
             Scanner keyboard = new Scanner(System.in);
             inputs[0] = keyboard.nextLine();
             inputs[0].trim();

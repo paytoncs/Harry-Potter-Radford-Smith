@@ -55,7 +55,7 @@ class MainMenuView extends View{
     }
 
     public static void startNewGame() {
-        GameControl.createNewGame(HarryPotterRadfordSmith.getPlayer());
+    int createNewGame = GameControl.createNewGame(HarryPotterRadfordSmith.getPlayer());
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenuView();
     }

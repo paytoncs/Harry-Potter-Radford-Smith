@@ -17,7 +17,7 @@ import java.io.Serializable;
     /*    public enum Item {*/        
         Invisibility_Cloak("Invisibility Cloak", "(1)", "Turns character "
                 + "invisible for certain creatures."),
-        Potions("Potion", "(1)", "Replenish health to your character"),
+        Chocolate_Frog("Chocolate Frogs", "(1)", "Replenish health to your character"),
         Broomstick("Broomstick", "(1)", "Character can fly over an obsticle."),
         Port_Key("Port Key", "(1)", "Teleports character to random location");
 

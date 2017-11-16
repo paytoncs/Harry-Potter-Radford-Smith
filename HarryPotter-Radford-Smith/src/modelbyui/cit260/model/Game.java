@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Game implements Serializable {
 
     private int totalMoves;
-    private Actor actor;
+    private Actor[] actors;
     private Player player;
     private ArrayList<Player> players = new ArrayList<Player>();
     private Map map;
@@ -52,14 +52,6 @@ public class Game implements Serializable {
     public void setItems(ArrayList<Item> items) {
         this.items = items;
     }
-    
-    
-
-    /**
-     *
-     * @return
-     */
-    /*private*/ 
 
     public Item getItem() {
         return item;
@@ -67,13 +59,7 @@ public class Game implements Serializable {
 
     public void setItem(Item item) {
         this.item = item;
-    }
-    
-    
-    
-    
-    
-    
+    }   
 
     public Map[] getMaps() {
         return maps;
@@ -82,8 +68,6 @@ public class Game implements Serializable {
     public void setMaps(Map[] maps) {
         this.maps = maps;
     }
-    
-    
 
     public Map getMap() {
         return map;
@@ -93,8 +77,6 @@ public class Game implements Serializable {
         this.map = map;
     }
     
-    
-
     public ArrayList<Player> getPlayers() {
         return players;
     }
@@ -118,12 +100,12 @@ public class Game implements Serializable {
     public Game() {
     }
 
-    public Actor getActor() {
-        return actor;
+    public Actor[] getActors() {
+        return actors;
     }
 
-    public void setActor(Actor actor) {
-        this.actor = actor;
+    public void setActors(Actor[] actors) {
+        this.actors = actors;
     }
 
     public int getTotalMoves() {
