@@ -35,10 +35,10 @@ class HelpMenuView extends View {
         switch (inputs[0].toUpperCase()) {
             case "G":
                 System.out.println("\nThe goal of this game is to collect the items to heal Hagrid from his injury.\n");
-                return true;
+                return false;
             case "M":
                 System.out.println("\nYou will need to press a command key to choose the direction in which you will move.\n");
-                return true;
+                return false;
             case "E":
                 MainMenuView mainMenuView = new MainMenuView();
                 return true;

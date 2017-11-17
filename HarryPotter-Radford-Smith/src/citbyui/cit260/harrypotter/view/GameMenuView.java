@@ -29,7 +29,6 @@ class GameMenuView {
 
     }
 
-
     public String[] getInputs() {
 
         String[] inputs = new String[1];
@@ -43,13 +42,11 @@ class GameMenuView {
             System.out.println("I - Items List");
             System.out.println("S - Spells List");
             System.out.println("M - Move to new location");
-            System.out.println("R - Run away");
             System.out.println("W - What should I do?");
             System.out.println("H - What’s my health?");
             System.out.println("T - How much time do I have? ");
-            System.out.println("D - How much would this item help my health?");
             System.out.println("H - Help");
-            System.out.println("V - Quit");
+            System.out.println("Q - Quit");
             Scanner keyboard = new Scanner(System.in);
             inputs[0] = keyboard.nextLine();
             inputs[0].trim();
@@ -74,10 +71,16 @@ class GameMenuView {
                 return false;
             case "S":
                 spellList();
-                return true;
+                return false;
             case "I":
                 itemList();
-                return true;
+                return false;
+            case "V":
+                mapView();
+                return false;
+            case "H":
+                healthView();
+                return false;
             default:
                 System.out.println("Invalid menu item");
                 break;
@@ -85,14 +88,13 @@ class GameMenuView {
         return false;
     }
 
-   
-   
- public static void startNewGame() {
+    public static void startNewGame() {
         ActorControl.addHealthItemsToHealth(HarryPotterRadfordSmith.getPlayer());
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenuView();
- }
-  public static void spellList() {
+    }
+
+    public static void spellList() {
         SelectSpellView selectSpellView = new SelectSpellView();
         selectSpellView.displaySelectSpellView();
     }
@@ -100,6 +102,16 @@ class GameMenuView {
     public static void itemList() {
         ItemMenuView itemMenuView = new ItemMenuView();
         itemMenuView.displayItemMenuView();
+    }
+
+    public static void mapView() {
+        SelectMapView selectMapView = new SelectMapView();
+        selectMapView.displaySelectMapView();
+    }
+    
+    public static void healthView() {
+        SelectHealthView selectHealthView = new SelectHealthView();
+        selectHealthView.displaySelectHealthView();
     }
 
 }

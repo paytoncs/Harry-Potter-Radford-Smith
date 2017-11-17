@@ -40,7 +40,7 @@ public abstract class View implements ViewInterface {
 
             value = value.trim();
             if (value.length() < 1) {
-                System.out.println("**** You must enter a value. ***");
+                System.out.println("\n**** You must enter a value. ***\n");
                 continue;
             }
             return value;

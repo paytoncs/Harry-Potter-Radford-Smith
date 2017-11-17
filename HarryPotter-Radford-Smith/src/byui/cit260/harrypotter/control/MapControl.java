@@ -5,11 +5,18 @@
  */
 package byui.cit260.harrypotter.control;
 
+import modelbyui.cit260.model.Map;
+
 /**
  *
  * @author paytonsmith
  */
 public class MapControl {
+    
+    public static Map createMap(int noOfRows, int noOfColumns) {
+        System.out.println("createMap method was called");
+        return null;
+    }
 
     public static double calcStepsRemaining(double totalMapColumns, double totalMapRows, double totalStepsTaken) {
 
