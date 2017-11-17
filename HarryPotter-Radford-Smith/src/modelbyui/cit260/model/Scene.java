@@ -132,9 +132,13 @@ public class Scene implements Serializable {
     }
 
     public Scene(String description, String displaySymbol, String obstacleEncounter) {
+        
         this.description = description;
         this.displaySymbol = displaySymbol;
         this.obstacleEncounter = obstacleEncounter;
+    }
+
+    public Scene() {
     }
 
     @Override

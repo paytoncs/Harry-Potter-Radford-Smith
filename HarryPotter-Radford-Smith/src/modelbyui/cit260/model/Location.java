@@ -16,9 +16,9 @@ import java.util.Objects;
  */
 public class Location implements Serializable {
     
-    private Point row;
-    private Point column;
-    private Point visited;
+    private int row;
+    private int column;
+    private boolean visited;
     private Int movesRemainingInGame;
     private String runAway;
     private Actor actor;
@@ -27,6 +27,32 @@ public class Location implements Serializable {
     private Scene[] scenes = new Scene[1];
     private Map map;
     private Map[] maps = new Map[1];
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+    
+    
 
     public Map[] getMaps() {
         return maps;
@@ -89,17 +115,7 @@ public class Location implements Serializable {
 
     public Location(){
     }
-    public Point getRow() {
-        return row;
-    }
 
-    public Point getColumn() {
-        return column;
-    }
-
-    public Point getVisited() {
-        return visited;
-    }
 
     public Int getMovesRemainingInGame() {
         return movesRemainingInGame;
@@ -109,17 +125,7 @@ public class Location implements Serializable {
         return runAway;
     }
 
-    public void setRow(Point row) {
-        this.row = row;
-    }
 
-    public void setColumn(Point column) {
-        this.column = column;
-    }
-
-    public void setVisited(Point visited) {
-        this.visited = visited;
-    }
 
     public void setMovesRemainingInGame(Int movesRemainingInGame) {
         this.movesRemainingInGame = movesRemainingInGame;

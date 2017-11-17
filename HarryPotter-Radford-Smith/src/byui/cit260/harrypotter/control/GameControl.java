@@ -110,13 +110,28 @@ public class GameControl {
         if (noOfRows < 1 || noOfColumns < 1) {
             return null;
         }
-        
-        System.out.println("createLocations called");
+ 
+        Location[][] locations = new Location[noOfRows][noOfColumns];
+        for (int row = 0 ; row < noOfRows; row++) {
+            for (int column = 0; column < noOfColumns; column++) {
+                Location location = new Location();
+                location.setRow(row);
+                location.setColumn(column);
+                location.setVisited(false);
+                location.            
+            }    
+        }
         return new Location[1][1];
     }
 
     private static Scene[] createScenes() {
-        System.out.println("createScenes() called");
+        Scene[] scenes = new Scene[10];
+        
+        Scene scene1 = new Scene("You've encountered a spider!", "S", "Spider");
+        scenes[0] = scene1;
+    
+        
+        
         return new Scene[1];
     }
 
