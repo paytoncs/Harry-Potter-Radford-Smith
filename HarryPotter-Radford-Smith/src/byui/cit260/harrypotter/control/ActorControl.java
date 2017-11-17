@@ -5,6 +5,7 @@
  */
 package byui.cit260.harrypotter.control;
 
+
 import modelbyui.cit260.model.Player;
 
 /**
@@ -56,6 +57,14 @@ public class ActorControl {
     }
 
     public static void addHealthItemsToHealth(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void addHealthItemsToHealth() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static AddhealthItemsToHealth addhealthItemsToHealth() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

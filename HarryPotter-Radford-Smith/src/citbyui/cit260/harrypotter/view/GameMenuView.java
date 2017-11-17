@@ -98,8 +98,8 @@ class GameMenuView {
     }
 
     public static void itemList() {
-        SelectItemView selectItemView = new SelectItemView();
-        selectItemView.displaySelectItemView();
+        ItemMenuView itemMenuView = new ItemMenuView();
+        itemMenuView.displayItemMenuView();
     }
 
 }

@@ -38,7 +38,7 @@ public class ItemMenuView {
         while (valid == false) {
             System.out.println("M - Marauder’s map");
             System.out.println("I - Invisibility cloak");
-            System.out.println("C - Chocolate frogs (Health)");
+            System.out.println("C - Chocolate frogs (Adds +10 Health)");
             System.out.println("B - Broom");
             System.out.println("H - Help - What do the items do?");
             Scanner keyboard = new Scanner(System.in);
@@ -67,7 +67,7 @@ public class ItemMenuView {
                 Item.useInvisibilityCloak();
                 return false;
             case "C":
-                Item.eatChocolateFrog();
+                addHealthItemsToHealth();
                 return false;
             case "B":
                 Item.useBroomstick();
@@ -80,4 +80,8 @@ public class ItemMenuView {
         }
         return false;
     }
-}
+
+    public static void addHealthItemsToHealth() {
+        UseHealthItemView useHealthItemView = new UseHealthItemView();
+        useHealthItemView.displayHealthItemView();
+    }}
