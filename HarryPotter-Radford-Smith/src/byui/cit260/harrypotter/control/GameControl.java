@@ -117,8 +117,8 @@ public class GameControl {
                 Location location = new Location();
                 location.setRow(row);
                 location.setColumn(column);
-                location.setVisited(false);
-                location.            
+                location.setVisited(false);  
+                
             }    
         }
         return new Location[1][1];
@@ -130,9 +130,28 @@ public class GameControl {
         Scene scene1 = new Scene("You've encountered a spider!", "S", "Spider");
         scenes[0] = scene1;
     
+        Scene scene2 = new Scene("You've encountered a giant!", "G", "Giant");
+        scenes[0] = scene1;
+    
+        Scene scene3 = new Scene("You've encountered a dementor!", "D", "Dementor");
+        scenes[0] = scene1;
+    
+        Scene scene4 = new Scene("You've encountered a dragon!", "R", "Dragon");
+        scenes[0] = scene1;
+    
+        Scene scene5 = new Scene("You found a chocolate frog", "F", "Frog");
+        scenes[0] = scene1;
         
-        
-        return new Scene[1];
+        Scene scene6 = new Scene("You've encountered a boulder on the path!", "B", "Boulder");
+        scenes[0] = scene1;
+    
+        Scene scene7 = new Scene("You've found an ingredient for Hagrid!", "I", "Ingredient");
+        scenes[0] = scene1;
+    
+        Scene scene8 = new Scene("This is where Hagrid is.", "H", "Hagrid");
+        scenes[0] = scene1;
+    
+        return scenes;
     }
 
     private static void assignItemsToScenes(Scene[] scenes, Location[][] locations) {
