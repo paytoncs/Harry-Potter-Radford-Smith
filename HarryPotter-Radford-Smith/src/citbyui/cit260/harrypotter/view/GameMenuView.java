@@ -7,8 +7,10 @@ package citbyui.cit260.harrypotter.view;
 
 import byui.cit260.harrypotter.control.ActorControl;
 import static byui.cit260.harrypotter.control.ActorControl.addHealthItemsToHealth;
+import byui.cit260.harrypotter.control.GameControl;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.util.Scanner;
+import modelbyui.cit260.model.Game;
 
 /**
  *
@@ -77,7 +79,7 @@ class GameMenuView {
                 return false;
             case "V":
                 mapView();
-                return false;
+                GameMenuView.displayMap();
             case "H":
                 healthView();
                 return false;
@@ -112,6 +114,11 @@ class GameMenuView {
     public static void healthView() {
         SelectHealthView selectHealthView = new SelectHealthView();
         selectHealthView.displaySelectHealthView();
+    }
+
+    public static void displayMap() {
+        Game game = HarryPotterRadfordSmith.getCurrentGame();
+        Location locations =
     }
 
 }
