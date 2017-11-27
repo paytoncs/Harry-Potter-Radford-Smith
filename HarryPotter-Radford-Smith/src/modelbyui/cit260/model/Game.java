@@ -19,11 +19,21 @@ public class Game implements Serializable {
     private Player player;
     private ArrayList<Player> players = new ArrayList<Player>();
     private Map map;
-    private Map[] maps = new Map[1];
     private Item item;
     private ArrayList<Item> items = new ArrayList<Item>();
     private Spell spell;
     private ArrayList<Spell> spells = new ArrayList<Spell>();
+    private Scene scene;
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+    
+    
 
     public ArrayList<Spell> getSpells() {
         return spells;
@@ -60,14 +70,6 @@ public class Game implements Serializable {
     public void setItem(Item item) {
         this.item = item;
     }   
-
-    public Map[] getMaps() {
-        return maps;
-    }
-
-    public void setMaps(Map[] maps) {
-        this.maps = maps;
-    }
 
     public Map getMap() {
         return map;

@@ -21,7 +21,7 @@ public class StartProgramView extends View {
         String[] inputs = new String[1];
 
         System.out.println("*************************************"
-                + "\n* Welcome to The Harry Potter Game. *"
+                + "\n* Welcome to The Harry Potter Game! *"
                 + "\n*************************************");
         String playerName = this.getInput("\nPlease enter your name:");
         inputs[0] = playerName;
@@ -41,7 +41,7 @@ public class StartProgramView extends View {
         }
 
         System.out.println("================================================="
-                + "\nWelcome to the game " + playerName + ". \nWe hope you have a lot of fun!"
+                + "\nWelcome " + playerName + ". \nWe hope you have a lot of fun!"
                 + "\n=================================================");
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();

@@ -6,7 +6,6 @@
 package byui.cit260.harrypotter.control;
 
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
-import harrypotter.radford.smith.HarryPotterRadfordSmith.SceneType;
 import java.awt.Point;
 import modelbyui.cit260.model.Actor;
 import modelbyui.cit260.model.Game;
@@ -15,6 +14,7 @@ import modelbyui.cit260.model.Location;
 import modelbyui.cit260.model.Map;
 import modelbyui.cit260.model.Player;
 import modelbyui.cit260.model.Scene;
+import modelbyui.cit260.model.SceneType;
 
 /**
  *
@@ -55,7 +55,7 @@ public class GameControl {
         return 1;
     }
 
-    private static Actor[] createActors() {
+    public static Actor[] createActors() {
         Actor hagrid = new Actor();
         hagrid.setName("Hagrid");
         hagrid.setDescription("A loyal friend of Dumbledore and teacher at Hogwarts");
@@ -89,7 +89,7 @@ public class GameControl {
         return new Actor[1];
     }
 
-    private static Map createMap(int noOfRows, int noOfColumns) {
+    public static Map createMap(int noOfRows, int noOfColumns) {
         if (noOfRows < 0 || noOfColumns < 0) {
             return null;
         }
@@ -103,6 +103,7 @@ public class GameControl {
 
         Scene[] scenes = GameControl.createScenes();
         GameControl.assignItemsToScenes(scenes, locations);
+        GameControl.assignScenesToLocations(map, scenes);
 
         return map;
     }
@@ -119,57 +120,58 @@ public class GameControl {
                 location.setRow(row);
                 location.setColumn(column);
                 location.setVisited(false);
-
+                locations[row][column] = location;
             }
         }
-        return new Location[1][1];
+        locations[3][3].setVisited(true);
+        return locations;
     }
 
-    private static Scene[] createScenes() {
-        Scene[] scenes = new Scene[10];
+    public static Scene[] createScenes() {
+        Scene[] scenes = new Scene[8];
 
-        Scene scene1 = new Scene("You've encountered a spider!", "S", "Spider");
-        scenes[0] = scene1;
+        Scene scene1 = new Scene("You've encountered a spider!", "SP", "Spider");
+        scenes[SceneType.spider_scene.ordinal()] = scene1;
 
-        Scene scene2 = new Scene("You've encountered a giant!", "G", "Giant");
-        scenes[1] = scene1;
+        Scene scene2 = new Scene("You've encountered a giant!", "GI", "Giant");
+        scenes[SceneType.giant_scene.ordinal()] = scene2;
 
-        Scene scene3 = new Scene("You've encountered a dementor!", "D", "Dementor");
-        scenes[2] = scene1;
+        Scene scene3 = new Scene("You've encountered a dementor!", "DE", "Dementor");
+        scenes[SceneType.giant_scene.ordinal()] = scene3;
 
-        Scene scene4 = new Scene("You've encountered a dragon!", "R", "Dragon");
-        scenes[3] = scene1;
+        Scene scene4 = new Scene("You've encountered a dragon!", "DR", "Dragon");
+        scenes[SceneType.giant_scene.ordinal()] = scene4;
 
-        Scene scene5 = new Scene("You found a chocolate frog", "F", "Frog");
-        scenes[4] = scene1;
+        Scene scene5 = new Scene("You found a chocolate frog", "FR", "Frog");
+        scenes[SceneType.giant_scene.ordinal()] = scene5;
 
-        Scene scene6 = new Scene("You've encountered a boulder on the path!", "B", "Boulder");
-        scenes[5] = scene1;
+        Scene scene6 = new Scene("You've encountered a boulder on the path!", "BO", "Boulder");
+        scenes[SceneType.giant_scene.ordinal()] = scene6;
 
-        Scene scene7 = new Scene("You've found an ingredient for Hagrid!", "I", "Ingredient");
-        scenes[6] = scene1;
+        Scene scene7 = new Scene("You've found an ingredient for Hagrid!", "IN", "Ingredient");
+        scenes[SceneType.giant_scene.ordinal()] = scene7;
 
-        Scene scene8 = new Scene("This is where Hagrid is.", "H", "Hagrid");
-        scenes[7] = scene1;
+        Scene scene8 = new Scene("This is where Hagrid is.", "HA", "Hagrid");
+        scenes[SceneType.hagrid_scene.ordinal()] = scene8;
 
         return scenes;
     }
 
-    private static void assignItemsToScenes(Scene[] scenes, Location[][] locations) {
+    public static void assignItemsToScenes(Scene[] scenes, Location[][] locations) {
         System.out.println("assignItemsToScenes called");
     }
 
-    private static void assignScenesToLocations(Map map, Scene[] scenes) {
+    public static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
 
-        locations[5][3].setScene(scenes[SceneType.battle_scene.ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
 
-        locations[2][2].setScene(scenes[SceneType.battle_scene.ordinal()]);
-        locations[2][4].setScene(scenes[SceneType.battle_scene.ordinal()]);
+        locations[2][2].setScene(scenes[SceneType.spider_scene.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.spider_scene.ordinal()]);
 
-        locations[3][3].setScene(scenes[SceneType.friendly_scene.ordinal()]);
-        locations[3][5].setScene(scenes[SceneType.friendly_scene.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.hagrid_scene.ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.friendly_scene.ordinal()]);
         
-        locations[4][1].setScene(scenes[SceneType.battle_scene.ordinal()]);
+        locations[4][1].setScene(scenes[SceneType.spider_scene.ordinal()]);
     }
 }

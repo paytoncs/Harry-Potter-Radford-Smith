@@ -23,13 +23,6 @@ public class HarryPotterRadfordSmith {
     private static Player player = null;
     
     
-    public enum SceneType {
-        battle_scene,
-        obstacle_scene,
-        found_item_scene,
-        friendly_scene,        
-    }
-    
     public static void main(String[] args) {
       StartProgramView startProgramView = new StartProgramView();
       startProgramView.display();

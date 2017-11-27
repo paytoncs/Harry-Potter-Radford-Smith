@@ -41,6 +41,9 @@ public class ItemMenuView {
             System.out.println("C - Chocolate frogs (Adds +10 Health)");
             System.out.println("B - Broom");
             System.out.println("H - Help - What do the items do?");
+            System.out.println("\n*************************************");
+            System.out.println(" Press E to exit this menu?");
+            System.out.println("*************************************");
             Scanner keyboard = new Scanner(System.in);
             inputs[0] = keyboard.nextLine();
             inputs[0].trim();
@@ -74,6 +77,8 @@ public class ItemMenuView {
             case "H":
                 System.out.println("Item functions \br 1.Marauder’s map (keep track of where you are) \n Invisibility cloak \n Potions (health) \n Antidotes (burn healing paste) \n Chocolate frogs and food \n Broom");
                 return false;
+            case "E":
+                return true;
             default:
                 System.out.println("Invalid menu item");
                 break;

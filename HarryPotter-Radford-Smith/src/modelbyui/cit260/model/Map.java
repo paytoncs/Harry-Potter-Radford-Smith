@@ -22,7 +22,11 @@ public class Map implements Serializable {
     private Game game;
     private final Game[] games = new Game[1];
     private Location[][] locations;
-
+    
+    
+    public Map() {
+        
+    }
     public Location[][] getLocations() {
         return locations;
     }
@@ -31,9 +35,6 @@ public class Map implements Serializable {
         this.locations = locations;
     }
 
-    public Map() {
-        
-    }
 
     public Game[] getGames() {
         return games;

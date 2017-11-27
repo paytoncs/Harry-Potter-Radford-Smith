@@ -8,9 +8,11 @@ package citbyui.cit260.harrypotter.view;
 import byui.cit260.harrypotter.control.ActorControl;
 import static byui.cit260.harrypotter.control.ActorControl.addHealthItemsToHealth;
 import byui.cit260.harrypotter.control.GameControl;
+import static byui.cit260.harrypotter.control.GameControl.createScenes;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.util.Scanner;
 import modelbyui.cit260.model.Game;
+import modelbyui.cit260.model.Location;
 
 /**
  *
@@ -34,6 +36,17 @@ class GameMenuView {
     public String[] getInputs() {
 
         String[] inputs = new String[1];
+                                    
+   System.out.println("---------------------------------------------------------------------"
+                + "\n* Hagrid is injured and needs your help. Your objective is to find    *"
+                + "\n* to find the correct ingredients around the Forbidden                *"
+                + "\n* Forest to heal him. Be wary, the Forbidden Forest is a dangerous    *"
+                + "\n* place full of monsters and obstacles. You must overcome them        *"
+                + "\n* by selecting the correct spell or item. If you make the wrong       *"
+                + "\n* choice, you will take damage. Too many mistakes will leave you for  *"
+                + "\n* a dragons midnight snack. Find chocolate frogs around the forest to *"
+                + "\n* gain health. Good Luck! Remember, Hagrid's life is in your hands.   *"
+                + "\n---------------------------------------------------------------------");
 
         System.out.println("*************************************"
                 + "\n* Please select a game menu item. *"
@@ -79,7 +92,7 @@ class GameMenuView {
                 return false;
             case "V":
                 mapView();
-                GameMenuView.displayMap();
+                break;
             case "H":
                 healthView();
                 return false;
@@ -107,18 +120,33 @@ class GameMenuView {
     }
 
     public static void mapView() {
-        SelectMapView selectMapView = new SelectMapView();
-        selectMapView.displaySelectMapView();
+        Game game = HarryPotterRadfordSmith.getCurrentGame();
+        Location[][] locations = game.getMap().getLocations();
+        int rowCount = game.getMap().getRowCount();
+        int columnCount = game.getMap().getColumnCount();
+        System.out.println("\t   Marauder's Map");
+        System.out.println("  |  C0  |  C1  |  C2  |  C3  |  C4  |");
+        for (int row = 0; row < rowCount; row++) {
+            System.out.println("--------------------------------------");
+            System.out.print("R" + row);
+            for (int column = 0; column < columnCount; column++) {
+
+                System.out.print("|");
+
+                if (locations[row][column].visited) {
+                    String symbol = locations[row][column].getScene().getDisplaySymbol();
+                    System.out.print("  " + symbol + "  ");
+                } else {
+                    System.out.print("  ??  ");
+                }
+            }
+            System.out.print("|\n");
+        }
+        System.out.println("----------------------------------");
     }
-    
+
     public static void healthView() {
         SelectHealthView selectHealthView = new SelectHealthView();
         selectHealthView.displaySelectHealthView();
     }
-
-    public static void displayMap() {
-        Game game = HarryPotterRadfordSmith.getCurrentGame();
-        Location locations =
-    }
-
 }

@@ -18,7 +18,7 @@ public class Location implements Serializable {
     
     private int row;
     private int column;
-    private boolean visited;
+    public boolean visited;
     private Int movesRemainingInGame;
     private String runAway;
     private Actor actor;
