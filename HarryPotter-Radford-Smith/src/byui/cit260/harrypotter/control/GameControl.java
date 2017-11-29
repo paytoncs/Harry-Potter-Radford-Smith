@@ -5,6 +5,7 @@
  */
 package byui.cit260.harrypotter.control;
 
+import byui.cit260.harrypotter.exception.GameControlException;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.awt.Point;
 import modelbyui.cit260.model.Actor;
@@ -22,9 +23,10 @@ import modelbyui.cit260.model.SceneType;
  */
 public class GameControl {
 
-    public static Player savePlayer(String playerName) {
+    public static Player savePlayer(String playerName) 
+        throws GameControlException {
         if (playerName == null || playerName.length() < 1) {
-            return null;
+            throw new GameControlException("That name is too short.");
         }
         Player player = new Player(playerName);
         player.setName(playerName);
@@ -32,9 +34,10 @@ public class GameControl {
         return player;
     }
 
-    public static int createNewGame(Player player) {
+    public static void createNewGame(Player player) 
+        throws GameControlException {
         if (player == null) {
-            return -1;
+            throw new GameControlException("You haven't input a valid player.");
         }
         Game game = new Game();
         game.setPlayer(player);
@@ -49,10 +52,10 @@ public class GameControl {
 
         Map map = createMap(noOfRows, noOfColumns);
         if (map == null) {
-            return -1;
+            throw new GameControlException("You need to put in an input");
         }
         game.setMap(map);
-        return 1;
+        
     }
 
     public static Actor[] createActors() {
@@ -89,9 +92,10 @@ public class GameControl {
         return new Actor[1];
     }
 
-    public static Map createMap(int noOfRows, int noOfColumns) {
+    public static Map createMap(int noOfRows, int noOfColumns) 
+        throws GameControlException {
         if (noOfRows < 0 || noOfColumns < 0) {
-            return null;
+            throw new GameControlException("That input is too small.");
         }
 
         Map map = new Map();

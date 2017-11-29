@@ -39,8 +39,8 @@ class GameMenuView {
                                     
    System.out.println("---------------------------------------------------------------------"
                 + "\n* Hagrid is injured and needs your help. Your objective is to find    *"
-                + "\n* to find the correct ingredients around the Forbidden                *"
-                + "\n* Forest to heal him. Be wary, the Forbidden Forest is a dangerous    *"
+                + "\n* the correct ingredients around the Forbidden Forest to              *"
+                + "\n* heal him. Be wary, the Forbidden Forest is a dangerous              *"
                 + "\n* place full of monsters and obstacles. You must overcome them        *"
                 + "\n* by selecting the correct spell or item. If you make the wrong       *"
                 + "\n* choice, you will take damage. Too many mistakes will leave you for  *"
@@ -82,7 +82,7 @@ class GameMenuView {
         menuItem.toUpperCase();
         switch (inputs[0].toUpperCase()) {
             case "D":
-                addHealthItemsToHealth(0, 0);
+                addHealthItemsToHealth();
                 return false;
             case "S":
                 spellList();
@@ -142,7 +142,7 @@ class GameMenuView {
             }
             System.out.print("|\n");
         }
-        System.out.println("----------------------------------");
+        System.out.println("--------------------------------------");
     }
 
     public static void healthView() {

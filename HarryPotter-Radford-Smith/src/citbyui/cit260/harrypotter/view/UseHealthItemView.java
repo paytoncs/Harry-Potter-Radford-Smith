@@ -16,6 +16,10 @@ import java.util.Scanner;
  */
 class UseHealthItemView {
 
+    private static void addHealthItemsToHealth() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     void displayHealthItemView() {
 
         boolean endView = false;

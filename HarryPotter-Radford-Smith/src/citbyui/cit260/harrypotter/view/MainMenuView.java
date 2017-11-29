@@ -6,9 +6,12 @@
 package citbyui.cit260.harrypotter.view;
 
 import byui.cit260.harrypotter.control.GameControl;
+import byui.cit260.harrypotter.exception.GameControlException;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import static java.lang.System.in;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -54,8 +57,13 @@ class MainMenuView extends View{
         return false;
     }
 
-    public static void startNewGame() {
-    int createNewGame = GameControl.createNewGame(HarryPotterRadfordSmith.getPlayer());
+    public void startNewGame() {
+    try {
+        GameControl.createNewGame(HarryPotterRadfordSmith.getPlayer());
+    } catch (GameControlException ex) {
+        System.out.println(ex.getMessage());
+        return;
+    }
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenuView();
     }

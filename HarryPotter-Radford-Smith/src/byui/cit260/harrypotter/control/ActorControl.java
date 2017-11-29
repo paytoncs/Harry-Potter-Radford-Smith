@@ -5,7 +5,7 @@
  */
 package byui.cit260.harrypotter.control;
 
-
+import byui.cit260.harrypotter.exception.ActorControlException;
 import modelbyui.cit260.model.Player;
 
 /**
@@ -14,26 +14,24 @@ import modelbyui.cit260.model.Player;
  */
 public class ActorControl {
 
-    public static double addHealthItemsToHealth(double healthItemQuantity, double currentHealth) {
-
+    public static double addHealthItemsToHealth(double healthItemQuantity, double currentHealth)
+            throws ActorControlException {
         if (healthItemQuantity < 1) {
-            return -1;
+            throw new ActorControlException("You must have at least one health item.");
         }
 
         if (currentHealth > 90) {
-            return -1;
+            throw new ActorControlException("You're already full health.");
         }
 
         if (currentHealth < 10) {
-            return -1;
+            throw new ActorControlException("You're already dead.");
         }
 
         double healthRecieved;
         healthRecieved = healthItemQuantity * 10;
         double totalHealth = currentHealth + healthRecieved;
         return totalHealth;
-  
-    
     }
 
     private static double currentHealth() {
@@ -41,19 +39,19 @@ public class ActorControl {
     }
 
     // Connor Radford
-    public static double totalHealthRemaining(double currentHealth, double hitsTaken) {
- 
+    public static double totalHealthRemaining(double currentHealth, double hitsTaken) 
+        throws ActorControlException {
         if (currentHealth > 100) { //Greater than 100
-            return -1;
+            throw new ActorControlException("You're already full health");
         }
- 
+
         if (hitsTaken > 3) { //Greater than 3
-            return -1;
+            throw new ActorControlException("You lost the encounter");
         }
         double hitDamage = 10;
         double totalDamageTaken = hitsTaken * hitDamage;
         currentHealth = currentHealth - totalDamageTaken;
-        return currentHealth;   
+        return currentHealth;
     }
 
     public static void addHealthItemsToHealth(Player player) {
