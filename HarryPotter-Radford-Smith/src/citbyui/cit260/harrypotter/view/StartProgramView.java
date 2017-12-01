@@ -7,9 +7,6 @@ package citbyui.cit260.harrypotter.view;
 
 import byui.cit260.harrypotter.control.GameControl;
 import byui.cit260.harrypotter.exception.GameControlException;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import modelbyui.cit260.model.Player;
 
 /**
@@ -44,7 +41,7 @@ public class StartProgramView extends View {
             int age = Integer.parseInt(inputs[1]);
             player = GameControl.savePlayer(playerName);
         } catch (NumberFormatException e) {
-            System.out.println("It needs to be a number");
+            System.out.println("It needs to be a valid number");
             return false;   
         } catch (GameControlException gce) {
             System.out.println(gce.getMessage());

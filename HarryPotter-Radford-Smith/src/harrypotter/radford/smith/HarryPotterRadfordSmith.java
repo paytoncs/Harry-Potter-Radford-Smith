@@ -21,14 +21,17 @@ public class HarryPotterRadfordSmith {
      */
     private static Game currentGame = null;
     private static Player player = null;
-    
-    
+
     public static void main(String[] args) {
-      StartProgramView startProgramView = new StartProgramView();
-      startProgramView.display();
-      
-      ItemMenuView itemMenuView = new ItemMenuView();
-      itemMenuView.displayItemMenuView();
+        try {
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.display();
+            ItemMenuView itemMenuView = new ItemMenuView();
+            itemMenuView.displayItemMenuView();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
     }
 
     public static Game getCurrentGame() {
@@ -47,12 +50,9 @@ public class HarryPotterRadfordSmith {
         HarryPotterRadfordSmith.player = player;
     }
     private long currentHealth;
-    
-      public long getCurrentHealth() {
+
+    public long getCurrentHealth() {
         return currentHealth;
     }
 
-  
-    }
-    
-
+}
