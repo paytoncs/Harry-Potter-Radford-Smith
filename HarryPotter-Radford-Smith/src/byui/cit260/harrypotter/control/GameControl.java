@@ -10,7 +10,6 @@ import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.awt.Point;
 import modelbyui.cit260.model.Actor;
 import modelbyui.cit260.model.Game;
-import modelbyui.cit260.model.Item;
 import modelbyui.cit260.model.Location;
 import modelbyui.cit260.model.Map;
 import modelbyui.cit260.model.Player;

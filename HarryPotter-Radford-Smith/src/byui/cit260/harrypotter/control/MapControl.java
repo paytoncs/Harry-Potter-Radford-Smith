@@ -46,7 +46,7 @@ public class MapControl {
         //  newRow = oldRow
         //  newColumn = oldColumn - 1
         
-        if (direction =)
+        if (direction = )
 
         if (newRow < 1 || newRow > map.getRowCount() || newColumn < 1 || newColumn > map.getColumnCount()) {
             throw new MapControlException("That's out of bounds.");
