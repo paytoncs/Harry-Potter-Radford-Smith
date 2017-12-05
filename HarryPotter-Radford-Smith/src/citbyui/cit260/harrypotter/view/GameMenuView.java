@@ -9,8 +9,11 @@ import byui.cit260.harrypotter.control.ActorControl;
 import static byui.cit260.harrypotter.control.ActorControl.addHealthItemsToHealth;
 import byui.cit260.harrypotter.control.GameControl;
 import static byui.cit260.harrypotter.control.GameControl.createScenes;
+import byui.cit260.harrypotter.control.ItemControl;
+import byui.cit260.harrypotter.control.MapControl;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.util.Scanner;
+import modelbyui.cit260.model.Actor;
 import modelbyui.cit260.model.Game;
 import modelbyui.cit260.model.Location;
 
@@ -64,7 +67,7 @@ class GameMenuView {
             System.out.println("Q - Quit");
             Scanner keyboard = new Scanner(System.in);
             inputs[0] = keyboard.nextLine();
-            inputs[0].trim();
+            inputs[0] = inputs[0].trim();
             if (inputs.length < 1) {
                 System.out.println("**** You must enter a value. ***");
                 continue;
@@ -94,6 +97,7 @@ class GameMenuView {
                 mapView();
                 break;
             case "H":
+                System.out.println();
                 healthView();
                 return false;
             default:
@@ -122,6 +126,7 @@ class GameMenuView {
     public static void mapView() {
         Game game = HarryPotterRadfordSmith.getCurrentGame();
         Location[][] locations = game.getMap().getLocations();
+        System.out.println(locations);
         int rowCount = game.getMap().getRowCount();
         int columnCount = game.getMap().getColumnCount();
         System.out.println("\t   Marauder's Map");

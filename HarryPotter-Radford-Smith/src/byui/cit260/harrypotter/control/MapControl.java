@@ -46,24 +46,29 @@ public class MapControl {
         //  newRow = oldRow
         //  newColumn = oldColumn - 1
         
-        if (direction =)
-
-        if (newRow < 1 || newRow > map.getRowCount() || newColumn < 1 || newColumn > map.getColumnCount()) {
-            throw new MapControlException("That's out of bounds.");
-        }
+        
+        if (direction == "N") {
+            //
+        } else if (direction == "S") {
+                //
+            } else if (direction == "W") {
+                //
+            } else if (direction == "E") {
+                //
+            }
 
         int currentRow = actor.getLocation().getRow();
         int currentColumn = actor.getLocation().getColumn();
         Location oldLocation = locations[currentRow][currentColumn];
 
-        Location newLocation = locations[newRow][newColumn];
+        //Location newLocation = locations[newRow][newColumn];
 
         oldLocation.setActor(null);
-        newLocation.setActor(actor);
+        //newLocation.setActor(actor);
 
-        actor.setLocation(newLocation);
+        //actor.setLocation(newLocation);
 
-        return newLocation;
+        return new Location();
     }
 
     public static double calcStepsRemaining(double totalMapColumns, double totalMapRows, double totalStepsTaken) {

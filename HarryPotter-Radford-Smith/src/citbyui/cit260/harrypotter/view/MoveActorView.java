@@ -11,6 +11,7 @@ import byui.cit260.harrypotter.exception.MapControlException;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import modelbyui.cit260.model.Actor;
 import modelbyui.cit260.model.Location;
+import modelbyui.cit260.model.Map;
 import modelbyui.cit260.model.Player;
 
 /**
@@ -62,16 +63,32 @@ public class MoveActorView extends View {
         
         switch (inputs[0].toUpperCase()) {
             case "N":
-
+                try {
+                MapControl.moveActor(actor, "N");}
+                catch (MapControlException mce) {
+                    System.out.println(mce);
+                }
                 return false;
             case "S":
-
+                try {
+                MapControl.moveActor(actor, "S");}
+                catch (MapControlException mce) {
+                    System.out.println(mce);
+                }
                 return false;
             case "E":
-
+                try {
+                MapControl.moveActor(actor, "E");}
+                catch (MapControlException mce) {
+                    System.out.println(mce);
+                }
                 return false;
             case "W":
-
+                try {
+                MapControl.moveActor(actor, "W");}
+                catch (MapControlException mce) {
+                    System.out.println(mce);
+                }
                 break;
             default:
                 System.out.println("You can't leave, Hagrid needs you.");
