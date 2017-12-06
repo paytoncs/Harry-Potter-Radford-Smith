@@ -12,7 +12,10 @@ import static byui.cit260.harrypotter.control.GameControl.createScenes;
 import byui.cit260.harrypotter.control.ItemControl;
 import byui.cit260.harrypotter.control.MapControl;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelbyui.cit260.model.Actor;
 import modelbyui.cit260.model.Game;
 import modelbyui.cit260.model.Location;
@@ -21,7 +24,7 @@ import modelbyui.cit260.model.Location;
  *
  * @author paytonsmith and Connorradford
  */
-class GameMenuView {
+class GameMenuView extends View {
 
     void displayGameMenuView() {
 
@@ -65,8 +68,11 @@ class GameMenuView {
             System.out.println("T - How much time do I have? ");
             System.out.println("H - Help");
             System.out.println("Q - Quit");
-            Scanner keyboard = new Scanner(System.in);
-            inputs[0] = keyboard.nextLine();
+            try {
+                inputs[0] = keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             inputs[0] = inputs[0].trim();
             if (inputs.length < 1) {
                 System.out.println("**** You must enter a value. ***");
@@ -80,7 +86,8 @@ class GameMenuView {
 
     }
 
-    static boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
         menuItem.toUpperCase();
         switch (inputs[0].toUpperCase()) {

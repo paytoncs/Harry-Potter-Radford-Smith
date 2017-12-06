@@ -15,6 +15,7 @@ import java.io.PrintWriter;
 public class ErrorView {
     
     private static final PrintWriter errorFile = HarryPotterRadfordSmith.getOutFile();
+    private static final PrintWriter logFile = HarryPotterRadfordSmith.getLogFile();
     
     public static void display(String className, String errorMessage) {
         
@@ -22,5 +23,8 @@ public class ErrorView {
                 "----------------------------------------------"
                +"\n- ERROR -" + errorMessage
                +"----------------------------------------------");
+        
+        // log error
+        logFile.println(className + " - " + errorMessage);
     }
 }

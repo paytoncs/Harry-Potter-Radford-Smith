@@ -5,14 +5,17 @@
  */
 package citbyui.cit260.harrypotter.view;
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelbyui.cit260.model.Item;
 
 /**
  *
  * @author paytonsmith
  */
-public class ItemMenuView {
+public class ItemMenuView extends View {
 
     public void displayItemMenuView() {
 
@@ -27,7 +30,8 @@ public class ItemMenuView {
 
     }
 
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
 
         String[] inputs = new String[1];
 
@@ -44,8 +48,11 @@ public class ItemMenuView {
             System.out.println("\n*************************************");
             System.out.println(" Press E to exit this menu?");
             System.out.println("*************************************");
-            Scanner keyboard = new Scanner(System.in);
-            inputs[0] = keyboard.nextLine();
+            try {
+                inputs[0] = keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(ItemMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             inputs[0].trim();
             if (inputs.length < 1) {
                 System.out.println("**** You must enter a value. ***");
@@ -59,10 +66,11 @@ public class ItemMenuView {
 
     }
 
-    static boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
-        menuItem.toUpperCase();
-        switch (inputs[0].toUpperCase()) {
+         menuItem = menuItem.toUpperCase();
+        switch (menuItem) {
             case "M":
                 Item.useMaraudersMap();
                 return true;

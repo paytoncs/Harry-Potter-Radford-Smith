@@ -8,13 +8,16 @@ package citbyui.cit260.harrypotter.view;
 import byui.cit260.harrypotter.control.ActorControl;
 import static byui.cit260.harrypotter.control.ActorControl.addHealthItemsToHealth;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author paytonsmith and Connorradford
  */
-class UseHealthItemView {
+class UseHealthItemView extends View{
 
     private static void addHealthItemsToHealth() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -34,6 +37,7 @@ class UseHealthItemView {
     }
 
 
+    @Override
     public String[] getInputs() {
 
         String[] inputs = new String[1];
@@ -47,8 +51,11 @@ class UseHealthItemView {
             System.out.println("N - No, Return to game menu.");
             System.out.println("W - How do health items work? ");
             System.out.println("D - How much would this item help my health?");
-            Scanner keyboard = new Scanner(System.in);
-            inputs[0] = keyboard.nextLine();
+            try {
+                inputs[0] = keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(UseHealthItemView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             inputs[0].trim();
             if (inputs.length < 1) {
                 System.out.println("**** You must enter a value. ***");
@@ -62,7 +69,8 @@ class UseHealthItemView {
 
     }
 
-    static boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         String totalHealth = inputs[0];
         totalHealth.toUpperCase();
         switch (inputs[0].toUpperCase()) {

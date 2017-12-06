@@ -5,13 +5,16 @@
  */
 package citbyui.cit260.harrypotter.view;
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Radford
  */
-class SelectSpellView {
+class SelectSpellView extends View {
 
     void displaySelectSpellView() {
         boolean endView = false;
@@ -25,7 +28,8 @@ class SelectSpellView {
 
     }
 
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
 
         String[] inputs = new String[1];
 
@@ -42,8 +46,11 @@ class SelectSpellView {
             System.out.println("*************************************"
                 + "\n* E - Exit Spells List *"
                 + "\n*************************************");
-            Scanner keyboard = new Scanner(System.in);
-            inputs[0] = keyboard.nextLine();
+            try {
+                inputs[0] = keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(SelectSpellView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             inputs[0].trim();
             if (inputs.length < 1) {
                 System.out.println("**** You must enter a value. ***");
@@ -57,10 +64,11 @@ class SelectSpellView {
 
     }
 
-    boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
-        menuItem.toUpperCase();
-        switch (inputs[0].toUpperCase()) {
+        menuItem = menuItem.toUpperCase();
+        switch (menuItem) {
             case "E":
                 GameMenuView gameMenuView = new GameMenuView();
                 return true;

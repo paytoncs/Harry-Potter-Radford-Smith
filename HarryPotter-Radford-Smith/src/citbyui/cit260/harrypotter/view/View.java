@@ -5,7 +5,13 @@
  */
 package citbyui.cit260.harrypotter.view;
 
+import harrypotter.radford.smith.HarryPotterRadfordSmith;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,6 +19,10 @@ import java.util.Scanner;
  */
 public abstract class View implements ViewInterface {
 
+    private String message;
+    protected final BufferedReader keyboard = HarryPotterRadfordSmith.getInFile();
+    protected final PrintWriter console = HarryPotterRadfordSmith.getOutFile();
+    
     public View() {
     }
 
@@ -31,12 +41,15 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput(String promptMessage) {
         String value = null;
-        Scanner in = new Scanner(System.in);
 
         boolean valid = false;
         while (valid == false) {
             System.out.println(promptMessage);
-            value = in.nextLine();
+            try {
+                value = keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
             value = value.trim();
             if (value.length() < 1) {
