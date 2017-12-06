@@ -5,10 +5,7 @@
  */
 package citbyui.cit260.harrypotter.view;
 
-import byui.cit260.harrypotter.control.ActorControl;
-import static byui.cit260.harrypotter.control.ActorControl.totalHealthRemaining;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
-import modelbyui.cit260.model.Actor;
 import modelbyui.cit260.model.Game;
 
 

@@ -8,9 +8,6 @@ package citbyui.cit260.harrypotter.view;
 import byui.cit260.harrypotter.control.GameControl;
 import byui.cit260.harrypotter.exception.GameControlException;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

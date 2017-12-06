@@ -5,8 +5,6 @@
  */
 package citbyui.cit260.harrypotter.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author paytonsmith

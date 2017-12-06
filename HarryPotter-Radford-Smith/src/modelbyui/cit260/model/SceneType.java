@@ -10,10 +10,12 @@ package modelbyui.cit260.model;
  * @author Radford
  */
 public enum SceneType {
-    obstacle_scene,
-    found_item_scene,
+    boulder_scene,
+    chocolate_frog_scene,
+    found_main_item_scene,
     friendly_scene,
     spider_scene,
+    dementor_scene,
     giant_scene,
     dragon_scene,
     hagrid_scene,

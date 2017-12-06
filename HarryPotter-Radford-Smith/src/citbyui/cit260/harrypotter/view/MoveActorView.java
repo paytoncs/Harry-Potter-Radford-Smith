@@ -11,7 +11,6 @@ import byui.cit260.harrypotter.exception.MapControlException;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import modelbyui.cit260.model.Actor;
 import modelbyui.cit260.model.Location;
-import modelbyui.cit260.model.Map;
 import modelbyui.cit260.model.Player;
 
 /**

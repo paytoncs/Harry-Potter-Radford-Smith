@@ -61,7 +61,7 @@ public class GameControl {
         Actor hagrid = new Actor();
         hagrid.setName("Hagrid");
         hagrid.setDescription("A loyal friend of Dumbledore and teacher at Hogwarts");
-        hagrid.setCoordinates(new Point(3, 3));
+        hagrid.setCoordinates(new Point(2, 2));
 
         Actor spider = new Actor();
         spider.setName("Giant Spider");
@@ -126,12 +126,12 @@ public class GameControl {
                 locations[row][column] = location;
             }
         }
-        locations[3][3].setVisited(true);
+        locations[2][2].setVisited(true);
         return locations;
     }
 
     public static Scene[] createScenes() {
-        Scene[] scenes = new Scene[8];
+        Scene[] scenes = new Scene[10];
 
         Scene scene1 = new Scene("You've encountered a spider!", "SP", "Spider");
         scenes[SceneType.spider_scene.ordinal()] = scene1;
@@ -140,19 +140,19 @@ public class GameControl {
         scenes[SceneType.giant_scene.ordinal()] = scene2;
 
         Scene scene3 = new Scene("You've encountered a dementor!", "DE", "Dementor");
-        scenes[SceneType.giant_scene.ordinal()] = scene3;
+        scenes[SceneType.dementor_scene.ordinal()] = scene3;
 
         Scene scene4 = new Scene("You've encountered a dragon!", "DR", "Dragon");
-        scenes[SceneType.giant_scene.ordinal()] = scene4;
+        scenes[SceneType.dragon_scene.ordinal()] = scene4;
 
         Scene scene5 = new Scene("You found a chocolate frog", "FR", "Frog");
-        scenes[SceneType.giant_scene.ordinal()] = scene5;
+        scenes[SceneType.chocolate_frog_scene.ordinal()] = scene5;
 
         Scene scene6 = new Scene("You've encountered a boulder on the path!", "BO", "Boulder");
-        scenes[SceneType.giant_scene.ordinal()] = scene6;
+        scenes[SceneType.boulder_scene.ordinal()] = scene6;
 
         Scene scene7 = new Scene("You've found an ingredient for Hagrid!", "IN", "Ingredient");
-        scenes[SceneType.giant_scene.ordinal()] = scene7;
+        scenes[SceneType.found_main_item_scene.ordinal()] = scene7;
 
         Scene scene8 = new Scene("This is where Hagrid is.", "HA", "Hagrid");
         scenes[SceneType.hagrid_scene.ordinal()] = scene8;
@@ -166,15 +166,12 @@ public class GameControl {
 
     public static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
-
-        locations[4][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
-
-        locations[2][2].setScene(scenes[SceneType.spider_scene.ordinal()]);
-        locations[2][4].setScene(scenes[SceneType.spider_scene.ordinal()]);
-
-        locations[3][3].setScene(scenes[SceneType.hagrid_scene.ordinal()]);
-        locations[3][4].setScene(scenes[SceneType.friendly_scene.ordinal()]);
+        // hagrid_scene is where the end user will start
+        locations[2][2].setScene(scenes[SceneType.hagrid_scene.ordinal()]);
         
-        locations[4][1].setScene(scenes[SceneType.spider_scene.ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.spider_scene.ordinal()]);        
+        locations[3][4].setScene(scenes[SceneType.friendly_scene.ordinal()]);
     }
 }

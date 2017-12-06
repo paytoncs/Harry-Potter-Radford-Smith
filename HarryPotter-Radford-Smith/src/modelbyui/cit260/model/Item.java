@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package modelbyui.cit260.model;
-import java.io.Serializable;
 
 /**
  *

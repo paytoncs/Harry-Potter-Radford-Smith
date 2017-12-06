@@ -7,16 +7,10 @@ package citbyui.cit260.harrypotter.view;
 
 import byui.cit260.harrypotter.control.ActorControl;
 import static byui.cit260.harrypotter.control.ActorControl.addHealthItemsToHealth;
-import byui.cit260.harrypotter.control.GameControl;
-import static byui.cit260.harrypotter.control.GameControl.createScenes;
-import byui.cit260.harrypotter.control.ItemControl;
-import byui.cit260.harrypotter.control.MapControl;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelbyui.cit260.model.Actor;
 import modelbyui.cit260.model.Game;
 import modelbyui.cit260.model.Location;
 
