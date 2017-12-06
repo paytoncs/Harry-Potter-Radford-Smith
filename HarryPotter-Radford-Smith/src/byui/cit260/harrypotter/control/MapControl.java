@@ -46,16 +46,11 @@ public class MapControl {
         //  newRow = oldRow
         //  newColumn = oldColumn - 1
         
-        
-        if (direction == "N") {
-            //
-        } else if (direction == "S") {
-                //
-            } else if (direction == "W") {
-                //
-            } else if (direction == "E") {
-                //
-            }
+        if (direction = )
+
+        if (newRow < 1 || newRow > map.getRowCount() || newColumn < 1 || newColumn > map.getColumnCount()) {
+            throw new MapControlException("That's out of bounds.");
+        }
 
         int currentRow = actor.getLocation().getRow();
         int currentColumn = actor.getLocation().getColumn();

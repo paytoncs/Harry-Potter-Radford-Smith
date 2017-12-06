@@ -97,7 +97,6 @@ class GameMenuView {
                 mapView();
                 break;
             case "H":
-                System.out.println();
                 healthView();
                 return false;
             default:
