@@ -5,6 +5,9 @@
  */
 package byui.cit260.harrypotter.control;
 
+import byui.cit260.harrypotter.exception.ActorControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -26,7 +29,12 @@ public class ActorControlTest {
         double healthItemQuantity = 2;
         double currentHealth = 60;
         double expResult = 80;
-        double result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        double result = 0;
+        try {
+            result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(ActorControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         
@@ -34,21 +42,33 @@ public class ActorControlTest {
         healthItemQuantity = 0;
         currentHealth = 40;
         expResult = -1;
-        result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        try {
+            result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(ActorControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test 3");
         healthItemQuantity = 1;
         currentHealth = 100;
         expResult = -1;
-        result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        try {
+            result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(ActorControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test 4");
         healthItemQuantity = 2;
         currentHealth = 0;
         expResult = -1;
-        result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        try {
+            result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(ActorControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         
@@ -56,7 +76,11 @@ public class ActorControlTest {
         healthItemQuantity = 1;
         currentHealth = 10;
         expResult = 20;
-        result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        try {
+            result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(ActorControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         
@@ -64,7 +88,11 @@ public class ActorControlTest {
         healthItemQuantity = 9;
         currentHealth = 10;
         expResult = 100;
-        result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        try {
+            result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(ActorControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
         
@@ -72,7 +100,11 @@ public class ActorControlTest {
         healthItemQuantity = 1;
         currentHealth = 90;
         expResult = 100;
-        result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        try {
+            result = ActorControl.addHealthItemsToHealth(healthItemQuantity, currentHealth);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(ActorControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
         
     }
@@ -92,35 +124,56 @@ public class ActorControlTest {
         double currentHealth = 60;
         double hitsTaken = 2;
         double expResult = 40;
-        double result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        double result = 0;
+        try {
+            result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(ActorControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
        
         System.out.println("Test Case 2");
         currentHealth = 101;
         hitsTaken = 0;
         expResult = -1;
-        result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        try {
+            result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(ActorControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
        
         System.out.println("Test Case 3");
         currentHealth = 100;
         hitsTaken = 4;
         expResult = -1;
-        result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        try {
+            result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(ActorControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
        
         System.out.println("Test Case 4");
         currentHealth = 100;
         hitsTaken = 3;
         expResult = 70;
-        result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        try {
+            result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(ActorControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
        
         System.out.println("Test Case 5");
         currentHealth = 10;
         hitsTaken = 1;
         expResult = 0;
-        result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        try {
+            result = ActorControl.totalHealthRemaining(currentHealth, hitsTaken);
+        } catch (ActorControlException ex) {
+            Logger.getLogger(ActorControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         assertEquals(expResult, result, 0.0);
 }
 }
