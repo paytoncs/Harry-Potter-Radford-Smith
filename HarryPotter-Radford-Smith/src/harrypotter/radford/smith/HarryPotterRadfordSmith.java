@@ -11,12 +11,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import modelbyui.cit260.model.Game;
 import modelbyui.cit260.model.Player;
-
-
 
 public class HarryPotterRadfordSmith {
 
@@ -25,9 +21,9 @@ public class HarryPotterRadfordSmith {
 
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
-    
+
     private static PrintWriter logFile = null;
-    
+
     public static PrintWriter getOutFile() {
         return outFile;
     }
@@ -43,7 +39,7 @@ public class HarryPotterRadfordSmith {
     public static void setInFile(BufferedReader inFile) {
         HarryPotterRadfordSmith.inFile = inFile;
     }
-    
+
     public static PrintWriter getLogFile() {
         return logFile;
     }
@@ -61,7 +57,7 @@ public class HarryPotterRadfordSmith {
             //open log file
             String filePath = "log.txt";
             HarryPotterRadfordSmith.logFile = new PrintWriter(filePath);
-            
+
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.display();
             ItemMenuView itemMenuView = new ItemMenuView();
@@ -73,16 +69,20 @@ public class HarryPotterRadfordSmith {
                 if (HarryPotterRadfordSmith.inFile != null) {
                     HarryPotterRadfordSmith.inFile.close();
                 }
+
                 if (HarryPotterRadfordSmith.outFile != null) {
                     HarryPotterRadfordSmith.outFile.close();
                 }
 
+                if (HarryPotterRadfordSmith.logFile != null) {
+                    HarryPotterRadfordSmith.logFile.close();
+                }
+
             } catch (IOException ex) {
                 System.out.println("Error closing files");
+                return;
             }
-            HarryPotterRadfordSmith.outFile.close();
         }
-
     }
 
     public static Game getCurrentGame() {
