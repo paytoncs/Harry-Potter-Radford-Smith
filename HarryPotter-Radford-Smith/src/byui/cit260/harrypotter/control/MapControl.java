@@ -7,10 +7,12 @@ package byui.cit260.harrypotter.control;
 
 import byui.cit260.harrypotter.exception.MapControlException;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
+import java.util.ArrayList;
 import modelbyui.cit260.model.Actor;
 import modelbyui.cit260.model.Game;
 import modelbyui.cit260.model.Location;
 import modelbyui.cit260.model.Map;
+import modelbyui.cit260.model.Player;
 
 /**
  *
@@ -23,23 +25,26 @@ public class MapControl {
         return null;
     }
 
-    public static Location moveActor(Actor actor, String direction, String[] inputs)
+    public static Location moveActor(Player player, String[] inputs, int currentRow, int currentColumn)
             throws MapControlException {
-        if (actor == null) {
+        if (player == null) {
             throw new MapControlException("There is no actor.");
         }
 
         Game game = HarryPotterRadfordSmith.getCurrentGame();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
-
-        int currentRow = actor.getLocation().getRow();
-        int currentColumn = actor.getLocation().getColumn();     
         
+        Location oldLocation = locations[currentRow][currentColumn];
+
+     //   int currentRow = actors.;//getLocation().getRow();
+     //   int currentColumn = actors.getLocation().getColumn();     
+        int newRow = 0;
+        int newColumn = 0;
         switch (inputs[0].toUpperCase()) {
             case "N":
-                int newRow = currentRow - 1;
-                int newColumn = currentColumn;
+                newRow = currentRow - 1;
+                newColumn = currentColumn;
                 break;
             case "S":
                 newRow = currentRow + 1;
@@ -58,13 +63,9 @@ public class MapControl {
                 break;
         }
 
-        Location oldLocation = locations[currentRow][currentColumn];
+        Location newLocation = locations[newRow][newColumn];
 
-        //Location newLocation = locations[newRow][newColumn];
-        oldLocation.setActor(null);
-        //newLocation.setActor(actor);
-
-        //actor.setLocation(newLocation);
+        player.setLocation(newLocation);
         return new Location();
     }
 
@@ -89,4 +90,6 @@ public class MapControl {
         return totalStepsRemaining;
 
     }
+
+
 }

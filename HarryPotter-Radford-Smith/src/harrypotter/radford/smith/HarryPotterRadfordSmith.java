@@ -89,6 +89,22 @@ public class HarryPotterRadfordSmith {
         return currentGame;
     }
 
+    public int setMyColumn() {
+        
+    }
+    
+    public void setMyRow() {
+        
+    }
+    
+    public int getMyColumn() {
+        return column;
+    }
+    
+    public int getMyRow() {
+        return row;
+    }
+    
     public static void setCurrentGame(Game currentGame) {
         HarryPotterRadfordSmith.currentGame = currentGame;
     }

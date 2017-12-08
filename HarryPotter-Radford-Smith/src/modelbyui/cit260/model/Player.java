@@ -22,9 +22,19 @@ public class Player implements Serializable {
     private final ArrayList<Actor> actors = new ArrayList<Actor>();
     private Game game;
     private final Game[] games = new Game[1];
+    public Location location;
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 
 
-
+    
+    
     public Game[] getGames() {
         return games;
     }

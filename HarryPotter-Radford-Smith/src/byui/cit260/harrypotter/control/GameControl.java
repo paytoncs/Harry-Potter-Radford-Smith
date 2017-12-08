@@ -126,6 +126,8 @@ public class GameControl {
                 locations[row][column] = location;
             }
         }
+        int col = 2;
+        int row = 2;
         locations[2][2].setVisited(true);
         return locations;
     }

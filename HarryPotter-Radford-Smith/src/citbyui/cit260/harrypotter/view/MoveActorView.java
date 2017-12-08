@@ -4,8 +4,12 @@ import byui.cit260.harrypotter.control.GameControl;
 import byui.cit260.harrypotter.control.MapControl;
 import byui.cit260.harrypotter.exception.MapControlException;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
+import java.util.ArrayList;
+import java.util.Arrays;
 import modelbyui.cit260.model.Actor;
+import modelbyui.cit260.model.Game;
 import modelbyui.cit260.model.Location;
+import modelbyui.cit260.model.Map;
 import modelbyui.cit260.model.Player;
 
 /**
@@ -46,16 +50,12 @@ public class MoveActorView extends View {
 
     @Override
     public boolean doAction(String[] inputs) {
-        String menuItem = inputs[0];
-        menuItem.toUpperCase();
 
         Player player = HarryPotterRadfordSmith.getPlayer();
-        Actor actor = player.getActor();
-
         try {
-            Location newLocation = MapControl.moveActor(actor, direction, inputs);
+            Location newLocation = MapControl.moveActor(player, inputs, row, column);
         } catch (MapControlException e) {
-            System.out.println("Error passed with the exception");
+            System.out.println("Error passed with the exception " + player);
             return false;
         }
 
