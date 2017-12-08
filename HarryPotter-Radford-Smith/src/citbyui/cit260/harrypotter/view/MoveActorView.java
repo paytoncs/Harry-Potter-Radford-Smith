@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package citbyui.cit260.harrypotter.view;
 
 import byui.cit260.harrypotter.control.GameControl;
@@ -19,6 +14,18 @@ import modelbyui.cit260.model.Player;
  */
 public class MoveActorView extends View {
 
+    void displayMoveActorView() {
+        boolean endView = false;
+        do {
+            String[] inputs = this.getInputs();
+            if (inputs == null || inputs[0].toUpperCase().equals("Q")) {
+                return;
+            }
+            endView = doAction(inputs);
+        } while (endView != true);
+
+    }
+
     @Override
     public String[] getInputs() {
 
@@ -32,67 +39,28 @@ public class MoveActorView extends View {
         System.out.println("E - EAST");
         System.out.println("W - WEST");
 
-        String input1 = this.getInput("Enter a menu item.");
+        String input1 = this.getInput("Enter which direction you want to go.");
         inputs[0] = input1;
         return inputs;
     }
 
     @Override
     public boolean doAction(String[] inputs) {
-        String row = inputs[0];
-        String column = inputs[1];
-        try {
-            int rowNumber = Integer.parseInt(row);
-            int columnNumber = Integer.parseInt(column);
-        } catch (NumberFormatException ex) {
-            System.out.println("The row and column must be a number");
-            return false;
-        }
+        String menuItem = inputs[0];
+        menuItem.toUpperCase();
+
         Player player = HarryPotterRadfordSmith.getPlayer();
         Actor actor = player.getActor();
-        
+
         try {
-            Location newLocation = MapControl.moveActor(actor, row);
+            Location newLocation = MapControl.moveActor(actor, direction, inputs);
         } catch (MapControlException e) {
             System.out.println("Error passed with the exception");
             return false;
         }
-        
+
         System.out.println(GameControl.createScenes());
-        
-        switch (inputs[0].toUpperCase()) {
-            case "N":
-                try {
-                MapControl.moveActor(actor, "N");}
-                catch (MapControlException mce) {
-                    System.out.println(mce);
-                }
-                return false;
-            case "S":
-                try {
-                MapControl.moveActor(actor, "S");}
-                catch (MapControlException mce) {
-                    System.out.println(mce);
-                }
-                return false;
-            case "E":
-                try {
-                MapControl.moveActor(actor, "E");}
-                catch (MapControlException mce) {
-                    System.out.println(mce);
-                }
-                return false;
-            case "W":
-                try {
-                MapControl.moveActor(actor, "W");}
-                catch (MapControlException mce) {
-                    System.out.println(mce);
-                }
-                break;
-            default:
-                System.out.println("You can't leave, Hagrid needs you.");
-                break;
-        }
+
         return true;
     }
 }

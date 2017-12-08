@@ -47,16 +47,17 @@ class GameMenuView extends View {
                 + "\n* a dragons midnight snack. Find chocolate frogs around the forest to *"
                 + "\n* gain health. Good Luck! Remember, Hagrid's life is in your hands.   *"
                 + "\n---------------------------------------------------------------------");
+   
+        mapView();
 
         System.out.println("*************************************"
                 + "\n* Please select a game menu item. *"
                 + "\n*************************************");
         boolean valid = false;
         while (valid == false) {
-            System.out.println("V - View Map");
+            System.out.println("M - Move to new location");
             System.out.println("I - Items List");
             System.out.println("S - Spells List");
-            System.out.println("M - Move to new location");
             System.out.println("W - What should I do?");
             System.out.println("H - What’s my health?");
             System.out.println("T - How much time do I have? ");
@@ -69,7 +70,8 @@ class GameMenuView extends View {
             }
             inputs[0] = inputs[0].trim();
             if (inputs.length < 1) {
-                System.out.println("**** You must enter a value. ***");
+                ErrorView.display(this.getClass().getName(),
+                        "**** You must enter a value. ***");
                 continue;
             }
             valid = true;
@@ -94,8 +96,9 @@ class GameMenuView extends View {
             case "I":
                 itemList();
                 return false;
-            case "V":
+            case "M":
                 mapView();
+                moveActorView();
                 break;
             case "H":
                 healthView();
@@ -153,5 +156,10 @@ class GameMenuView extends View {
     public static void healthView() {
         SelectHealthView selectHealthView = new SelectHealthView();
         selectHealthView.displaySelectHealthView();
+    }
+
+    private void moveActorView() {
+        MoveActorView moveActorView = new MoveActorView();
+        moveActorView.displayMoveActorView();
     }
 }

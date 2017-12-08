@@ -23,7 +23,7 @@ public class MapControl {
         return null;
     }
 
-    public static Location moveActor(Actor actor, String direction)
+    public static Location moveActor(Actor actor, String direction, String[] inputs)
             throws MapControlException {
         if (actor == null) {
             throw new MapControlException("There is no actor.");
@@ -32,37 +32,39 @@ public class MapControl {
         Game game = HarryPotterRadfordSmith.getCurrentGame();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
-        
-        // If direction is North then
-        //  newRow = oldRow - 1
-        //  newColumn = oldColumn
-        // else If direction is South then
-        //  newRow = oldRow + 1
-        //  newColumn = oldColumn
-        // else If direction is East then
-        //  newRow = oldRow
-        //  newColumn = oldColumn + 1
-        // else If direction is West then
-        //  newRow = oldRow
-        //  newColumn = oldColumn - 1
-        
- //       if (direction = )
-
-   //     if (newRow < 1 || newRow > map.getRowCount() || newColumn < 1 || newColumn > map.getColumnCount()) {
-     //       throw new MapControlException("That's out of bounds.");
-       // }
 
         int currentRow = actor.getLocation().getRow();
-        int currentColumn = actor.getLocation().getColumn();
+        int currentColumn = actor.getLocation().getColumn();     
+        
+        switch (inputs[0].toUpperCase()) {
+            case "N":
+                int newRow = currentRow - 1;
+                int newColumn = currentColumn;
+                break;
+            case "S":
+                newRow = currentRow + 1;
+                newColumn = currentColumn;
+                break;
+            case "E":
+                newRow = currentRow;
+                newColumn = currentColumn + 1;
+                break;
+            case "W":
+                newRow = currentRow;
+                newColumn = currentColumn - 1;
+                break;
+            default:
+                System.out.println("You can't leave, Hagrid needs you.");
+                break;
+        }
+
         Location oldLocation = locations[currentRow][currentColumn];
 
         //Location newLocation = locations[newRow][newColumn];
-
         oldLocation.setActor(null);
         //newLocation.setActor(actor);
 
         //actor.setLocation(newLocation);
-
         return new Location();
     }
 
