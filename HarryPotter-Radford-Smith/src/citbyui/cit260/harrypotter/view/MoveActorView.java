@@ -55,6 +55,7 @@ public class MoveActorView extends View {
         int row = HarryPotterRadfordSmith.getMyRow();
         int column = HarryPotterRadfordSmith.getMyColumn();
         try {
+            System.out.println(row + column);
             Location newLocation = MapControl.moveActor(player, inputs, row, column);
         } catch (MapControlException e) {
             System.out.println("Error passed with the exception " + player);
