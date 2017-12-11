@@ -129,7 +129,6 @@ class GameMenuView extends View {
     public static void mapView() {
         Game game = HarryPotterRadfordSmith.getCurrentGame();
         Location[][] locations = game.getMap().getLocations();
-        System.out.println(locations);
         int rowCount = game.getMap().getRowCount();
         int columnCount = game.getMap().getColumnCount();
         System.out.println("\t   Marauder's Map");

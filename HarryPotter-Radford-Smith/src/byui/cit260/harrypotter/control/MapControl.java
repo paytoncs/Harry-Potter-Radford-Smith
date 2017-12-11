@@ -59,7 +59,8 @@ public class MapControl {
                 System.out.println("You can't leave, Hagrid needs you.");
                 break;
         }
-
+        HarryPotterRadfordSmith.setMyColumn(newColumn);
+        HarryPotterRadfordSmith.setMyRow(newRow);
         Location newLocation = locations[newRow][newColumn];
 
         player.setLocation(newLocation);
