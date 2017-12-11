@@ -35,10 +35,7 @@ public class MapControl {
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
         
-        Location oldLocation = locations[currentRow][currentColumn];
-
-     //   int currentRow = actors.;//getLocation().getRow();
-     //   int currentColumn = actors.getLocation().getColumn();     
+        Location oldLocation = locations[currentRow][currentColumn]; 
         int newRow = 0;
         int newColumn = 0;
         switch (inputs[0].toUpperCase()) {
