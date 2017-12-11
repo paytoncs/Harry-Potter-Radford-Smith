@@ -52,6 +52,8 @@ public class MoveActorView extends View {
     public boolean doAction(String[] inputs) {
 
         Player player = HarryPotterRadfordSmith.getPlayer();
+        int row = HarryPotterRadfordSmith.getMyRow();
+        int column = HarryPotterRadfordSmith.getMyColumn();
         try {
             Location newLocation = MapControl.moveActor(player, inputs, row, column);
         } catch (MapControlException e) {
@@ -59,7 +61,7 @@ public class MoveActorView extends View {
             return false;
         }
 
-        System.out.println(GameControl.createScenes());
+    //    System.out.println(GameControl.createScenes());
 
         return true;
     }

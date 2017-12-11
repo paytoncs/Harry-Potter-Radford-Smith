@@ -128,6 +128,8 @@ public class GameControl {
         }
         int col = 2;
         int row = 2;
+        HarryPotterRadfordSmith.setMyRow(row);
+        HarryPotterRadfordSmith.setMyColumn(col);
         locations[2][2].setVisited(true);
         return locations;
     }
