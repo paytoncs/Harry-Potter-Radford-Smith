@@ -182,7 +182,7 @@ public class GameControl {
         
         locations[4][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
         locations[3][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
-        locations[2][4].setScene(scenes[SceneType.spider_scene.ordinal()]);        
+        locations[2][1].setScene(scenes[SceneType.spider_scene.ordinal()]);        
         locations[3][4].setScene(scenes[SceneType.friendly_scene.ordinal()]);
     }
 }
