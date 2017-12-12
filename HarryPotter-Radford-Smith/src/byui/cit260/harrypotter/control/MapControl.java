@@ -32,11 +32,6 @@ public class MapControl {
         Game game = HarryPotterRadfordSmith.getCurrentGame();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
-        
-        Location oldLocation = locations[currentRow][currentColumn];
-
-     //   int currentRow = actors.;//getLocation().getRow();
-     //   int currentColumn = actors.getLocation().getColumn();     
         int newRow = 0;
         int newColumn = 0;
         switch (inputs[0].toUpperCase()) {
@@ -60,11 +55,11 @@ public class MapControl {
                 System.out.println("That's out of bounds.");
                 break;
         }
-
+        HarryPotterRadfordSmith.setMyColumn(newColumn);
+        HarryPotterRadfordSmith.setMyRow(newRow);
         Location newLocation = locations[newRow][newColumn];
-
         player.setLocation(newLocation);
-        return new Location();
+        return newLocation;
     }
 
     public static double calcStepsRemaining(double totalMapColumns, double totalMapRows, double totalStepsTaken) {

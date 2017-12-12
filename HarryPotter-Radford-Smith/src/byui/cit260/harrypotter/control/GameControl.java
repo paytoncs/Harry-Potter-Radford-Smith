@@ -126,9 +126,18 @@ public class GameControl {
                 locations[row][column] = location;
             }
         }
-        int col = 2;
-        int row = 2;
-        locations[2][2].setVisited(true);
+        int row;
+        int col;
+        if (HarryPotterRadfordSmith.getMyColumn() == 0 || HarryPotterRadfordSmith.getMyRow() == 0) {
+            col = 2;
+            row = 2;
+        } else {
+            col = HarryPotterRadfordSmith.getMyColumn();
+            row = HarryPotterRadfordSmith.getMyRow();
+        }
+        HarryPotterRadfordSmith.setMyRow(row);
+        HarryPotterRadfordSmith.setMyColumn(col);
+        locations[col][row].setVisited(true);
         return locations;
     }
 
@@ -173,7 +182,7 @@ public class GameControl {
         
         locations[4][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
         locations[3][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
-        locations[2][4].setScene(scenes[SceneType.spider_scene.ordinal()]);        
+        locations[2][1].setScene(scenes[SceneType.spider_scene.ordinal()]);        
         locations[3][4].setScene(scenes[SceneType.friendly_scene.ordinal()]);
     }
 }

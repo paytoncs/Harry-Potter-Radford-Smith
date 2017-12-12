@@ -9,6 +9,7 @@ import byui.cit260.harrypotter.control.ActorControl;
 import static byui.cit260.harrypotter.control.ActorControl.addHealthItemsToHealth;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelbyui.cit260.model.Game;
@@ -129,7 +130,6 @@ class GameMenuView extends View {
     public static void mapView() {
         Game game = HarryPotterRadfordSmith.getCurrentGame();
         Location[][] locations = game.getMap().getLocations();
-        System.out.println(locations);
         int rowCount = game.getMap().getRowCount();
         int columnCount = game.getMap().getColumnCount();
         System.out.println("\t   Marauder's Map");
@@ -142,7 +142,12 @@ class GameMenuView extends View {
                 System.out.print("|");
 
                 if (locations[row][column].visited) {
-                    String symbol = locations[row][column].getScene().getDisplaySymbol();
+                    String symbol;
+                    try {
+                        symbol = locations[row][column].getScene().getDisplaySymbol();
+                    } catch (NullPointerException e) {
+                        symbol = "VT";
+                    }
                     System.out.print("  " + symbol + "  ");
                 } else {
                     System.out.print("  ??  ");

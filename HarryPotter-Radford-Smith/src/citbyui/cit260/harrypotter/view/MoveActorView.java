@@ -47,10 +47,13 @@ public class MoveActorView extends View {
     public boolean doAction(String[] inputs) {
 
         Player player = HarryPotterRadfordSmith.getPlayer();
+        int row = HarryPotterRadfordSmith.getMyRow();
+        int column = HarryPotterRadfordSmith.getMyColumn();
         try {
             Location newLocation = MapControl.moveActor(player, inputs, row, column);
+            newLocation.visited = true;
         } catch (MapControlException e) {
-            System.out.println("Error passed with the exception " + player);
+            System.out.println("Error passed with the exception " + e);
             return false;
         }
 

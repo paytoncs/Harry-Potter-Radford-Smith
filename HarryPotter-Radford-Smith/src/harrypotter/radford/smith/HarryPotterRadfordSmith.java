@@ -23,6 +23,9 @@ public class HarryPotterRadfordSmith {
     private static BufferedReader inFile = null;
 
     private static PrintWriter logFile = null;
+    
+    public static int row = 0;
+    public static int column = 0;
 
     public static PrintWriter getOutFile() {
         return outFile;
@@ -89,19 +92,19 @@ public class HarryPotterRadfordSmith {
         return currentGame;
     }
 
-    public int setMyColumn() {
-        
+    public static void setMyColumn(int col) {
+        HarryPotterRadfordSmith.column = col;
     }
     
-    public void setMyRow() {
-        
+    public static void setMyRow(int row) {
+        HarryPotterRadfordSmith.row = row;
     }
     
-    public int getMyColumn() {
+    public static int getMyColumn() {
         return column;
     }
     
-    public int getMyRow() {
+    public static int getMyRow() {
         return row;
     }
     
