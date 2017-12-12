@@ -35,7 +35,7 @@ public class MapControl {
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
         
-        Location oldLocation = locations[currentRow][currentColumn]; 
+        //Location oldLocation = locations[currentRow][currentColumn]; 
         int newRow = 0;
         int newColumn = 0;
         switch (inputs[0].toUpperCase()) {
@@ -62,9 +62,8 @@ public class MapControl {
         HarryPotterRadfordSmith.setMyColumn(newColumn);
         HarryPotterRadfordSmith.setMyRow(newRow);
         Location newLocation = locations[newRow][newColumn];
-
         player.setLocation(newLocation);
-        return new Location();
+        return newLocation;
     }
 
     public static double calcStepsRemaining(double totalMapColumns, double totalMapRows, double totalStepsTaken) {
