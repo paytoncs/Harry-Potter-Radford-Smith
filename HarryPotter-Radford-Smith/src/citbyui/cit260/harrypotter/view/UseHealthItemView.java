@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.harrypotter.view;
 
+import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -72,6 +73,8 @@ class UseHealthItemView extends View{
         switch (inputs[0].toUpperCase()) {
             case "Y":
                 addHealthItemsToHealth();
+                 long actorHealth= HarryPotterRadfordSmith.getPlayer().getActor().getTotalHealth();
+                System.out.println("Your new health is " + actorHealth + ".");
                 return true;
             case "N":
                 return false;

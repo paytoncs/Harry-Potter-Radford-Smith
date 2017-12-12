@@ -34,7 +34,21 @@ public class MapControl {
         Game game = HarryPotterRadfordSmith.getCurrentGame();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
-        
+
+        // If direction is North then
+        //  newRow = oldRow - 1
+        //  newColumn = oldColumn
+        // else If direction is South then
+        //  newRow = oldRow + 1
+        //  newColumn = oldColumn
+        // else If direction is East then
+        //  newRow = oldRow
+        //  newColumn = oldColumn + 1
+        // else If direction is West then
+        //  newRow = oldRow
+        //  newColumn = oldColumn - 1
+
+      
         Location oldLocation = locations[currentRow][currentColumn];
 
      //   int currentRow = actors.;//getLocation().getRow();

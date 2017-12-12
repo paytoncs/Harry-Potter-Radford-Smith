@@ -11,10 +11,6 @@ package byui.cit260.harrypotter.control;
  */
 public class ItemControl {
 
-    public static void useMaraudersMap() {
-        System.out.println("useMaraudersMap() called");
-    }
-
     public static void useInvisibilityCloak() {
         System.out.println("useInvisibilityCloak() called");
     }
@@ -24,6 +20,6 @@ public class ItemControl {
     }
 
     public static void useBroomstick() {
-        System.out.println("useBroomstick() called");
+        System.out.println("You cannot use your broomstick here.");
     }
 }

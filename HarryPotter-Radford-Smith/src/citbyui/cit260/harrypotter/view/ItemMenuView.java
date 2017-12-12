@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.harrypotter.view;
 
+import byui.cit260.harrypotter.control.ItemControl;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,8 +41,7 @@ public class ItemMenuView extends View {
         boolean valid = false;
         while (valid == false) {
             System.out.println("M - Marauder’s map");
-            System.out.println("I - Invisibility cloak");
-            System.out.println("C - Chocolate frogs (Adds +10 Health)");
+            System.out.println("C - Chocolate frogs (Replenishes Health)");
             System.out.println("B - Broom");
             System.out.println("H - Help - What do the items do?");
             System.out.println("\n*************************************");
@@ -71,18 +71,15 @@ public class ItemMenuView extends View {
          menuItem = menuItem.toUpperCase();
         switch (menuItem) {
             case "M":
-                Item.useMaraudersMap();
-                return true;
-            case "I":
-                Item.useInvisibilityCloak();
+                GameMenuView.mapView();
                 return false;
             case "C":
                 addHealthItemsToHealth();
                 return false;
             case "B":
-                Item.useBroomstick();
+                ItemControl.useBroomstick();
             case "H":
-                System.out.println("Item functions \br 1.Marauder’s map (keep track of where you are) \n Invisibility cloak \n Potions (health) \n Antidotes (burn healing paste) \n Chocolate frogs and food \n Broom");
+                System.out.println(" 1. Marauder’s map (keep track of where you are.) \n 2. Invisibility cloak (Hides you from enemies for 3 moves.) \n 3. Antidotes (Heals you from dragon burns.) \n 4. Chocolate frogs (Heals you.) \n 5. Broom (Quickly move to any spot on the map.)");
                 return false;
             case "E":
                 return true;
