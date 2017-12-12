@@ -133,8 +133,6 @@ class GameMenuView extends View {
         int rowCount = game.getMap().getRowCount();
         int columnCount = game.getMap().getColumnCount();
         System.out.println("\t   Marauder's Map");
-        System.out.println("---------------------LOOK BELOW ME-------------------");
-        System.out.println(Arrays.toString(locations));
         System.out.println("  |  C0  |  C1  |  C2  |  C3  |  C4  |");
         for (int row = 0; row < rowCount; row++) {
             System.out.println("--------------------------------------");
