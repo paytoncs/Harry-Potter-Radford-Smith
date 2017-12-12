@@ -34,8 +34,6 @@ public class MapControl {
         Game game = HarryPotterRadfordSmith.getCurrentGame();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
-        
-        //Location oldLocation = locations[currentRow][currentColumn]; 
         int newRow = 0;
         int newColumn = 0;
         switch (inputs[0].toUpperCase()) {
