@@ -146,7 +146,7 @@ class GameMenuView extends View {
                     try {
                         symbol = locations[row][column].getScene().getDisplaySymbol();
                     } catch (NullPointerException e) {
-                        symbol = "VT";
+                        symbol = "  ";
                     }
                     System.out.print("  " + symbol + "  ");
                 } else {

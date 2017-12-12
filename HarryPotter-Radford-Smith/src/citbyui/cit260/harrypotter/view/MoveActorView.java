@@ -62,8 +62,6 @@ public class MoveActorView extends View {
             return false;
         }
 
-    //    System.out.println(GameControl.createScenes());
-
         return true;
     }
 }
