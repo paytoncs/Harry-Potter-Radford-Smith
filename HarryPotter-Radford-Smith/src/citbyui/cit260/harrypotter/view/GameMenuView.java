@@ -143,10 +143,10 @@ class GameMenuView extends View {
 
                 if (locations[row][column].visited) {
                     String symbol;
-                    if (locations[row][column].getScene().getDisplaySymbol() == null) {
-                        symbol = "VT";
-                    } else {
+                    try {
                         symbol = locations[row][column].getScene().getDisplaySymbol();
+                    } catch (NullPointerException e) {
+                        symbol = "VT";
                     }
                     System.out.print("  " + symbol + "  ");
                 } else {
