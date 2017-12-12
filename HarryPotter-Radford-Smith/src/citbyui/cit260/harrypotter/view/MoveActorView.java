@@ -4,12 +4,7 @@ import byui.cit260.harrypotter.control.GameControl;
 import byui.cit260.harrypotter.control.MapControl;
 import byui.cit260.harrypotter.exception.MapControlException;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
-import java.util.ArrayList;
-import java.util.Arrays;
-import modelbyui.cit260.model.Actor;
-import modelbyui.cit260.model.Game;
 import modelbyui.cit260.model.Location;
-import modelbyui.cit260.model.Map;
 import modelbyui.cit260.model.Player;
 
 /**
@@ -35,13 +30,13 @@ public class MoveActorView extends View {
 
         String[] inputs = new String[2];
 
-        System.out.println("*************************************"
+        this.console.println("*************************************"
                 + "\n* Which direction do you want to go? *"
                 + "\n*************************************");
-        System.out.println("N - NORTH");
-        System.out.println("S - SOUTH");
-        System.out.println("E - EAST");
-        System.out.println("W - WEST");
+        this.console.println("N - NORTH");
+        this.console.println("S - SOUTH");
+        this.console.println("E - EAST");
+        this.console.println("W - WEST");
 
         String input1 = this.getInput("Enter which direction you want to go.");
         inputs[0] = input1;
@@ -59,7 +54,7 @@ public class MoveActorView extends View {
             return false;
         }
 
-        System.out.println(GameControl.createScenes());
+        this.console.println(GameControl.createScenes());
 
         return true;
     }

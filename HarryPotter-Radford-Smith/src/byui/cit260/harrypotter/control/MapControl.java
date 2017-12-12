@@ -7,8 +7,6 @@ package byui.cit260.harrypotter.control;
 
 import byui.cit260.harrypotter.exception.MapControlException;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
-import java.util.ArrayList;
-import modelbyui.cit260.model.Actor;
 import modelbyui.cit260.model.Game;
 import modelbyui.cit260.model.Location;
 import modelbyui.cit260.model.Map;
@@ -59,7 +57,7 @@ public class MapControl {
                 newColumn = currentColumn - 1;
                 break;
             default:
-                System.out.println("You can't leave, Hagrid needs you.");
+                System.out.println("That's out of bounds.");
                 break;
         }
 

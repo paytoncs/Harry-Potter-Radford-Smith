@@ -37,7 +37,7 @@ class GameMenuView extends View {
 
         String[] inputs = new String[1];
                                     
-   System.out.println("---------------------------------------------------------------------"
+   this.console.println("---------------------------------------------------------------------"
                 + "\n* Hagrid is injured and needs your help. Your objective is to find    *"
                 + "\n* the correct ingredients around the Forbidden Forest to              *"
                 + "\n* heal him. Be wary, the Forbidden Forest is a dangerous              *"
@@ -55,14 +55,14 @@ class GameMenuView extends View {
                 + "\n*************************************");
         boolean valid = false;
         while (valid == false) {
-            System.out.println("M - Move to new location");
-            System.out.println("I - Items List");
-            System.out.println("S - Spells List");
-            System.out.println("W - What should I do?");
-            System.out.println("H - What’s my health?");
-            System.out.println("T - How much time do I have? ");
-            System.out.println("H - Help");
-            System.out.println("Q - Quit");
+            this.console.println("M - Move to new location");
+            this.console.println("I - Items List");
+            this.console.println("S - Spells List");
+            this.console.println("W - What should I do?");
+            this.console.println("H - What’s my health?");
+            this.console.println("T - How much time do I have? ");
+            this.console.println("H - Help");
+            this.console.println("Q - Quit");
             try {
                 inputs[0] = keyboard.readLine();
             } catch (IOException ex) {
@@ -104,7 +104,7 @@ class GameMenuView extends View {
                 healthView();
                 return false;
             default:
-                System.out.println("Invalid menu item");
+                ErrorView.display(this.getClass().getName(),"Invalid menu item");
                 break;
         }
         return false;

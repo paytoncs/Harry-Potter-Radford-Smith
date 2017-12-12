@@ -32,17 +32,17 @@ class SelectSpellView extends View {
 
         String[] inputs = new String[1];
 
-        System.out.println("*************************************"
+        this.console.println("*************************************"
                 + "\n* Spells List *"
                 + "\n*************************************");
         boolean valid = false;
         while (valid == false) {
-            System.out.println("* Lumos - Use this spell to light the area *");
-            System.out.println("* Expecto Patronum - Use to defend against certain creature. *");
-            System.out.println("* Incendio - Used for attacking certain creatures *");
-            System.out.println("* Wingardium Leviosa - Helps lift objects *");
-            System.out.println("* Accio - Helps retrieve certain items *");
-            System.out.println("*************************************"
+            this.console.println("* Lumos - Use this spell to light the area *");
+            this.console.println("* Expecto Patronum - Use to defend against certain creature. *");
+            this.console.println("* Incendio - Used for attacking certain creatures *");
+            this.console.println("* Wingardium Leviosa - Helps lift objects *");
+            this.console.println("* Accio - Helps retrieve certain items *");
+            this.console.println("*************************************"
                 + "\n* E - Exit Spells List *"
                 + "\n*************************************");
             try {
@@ -52,7 +52,7 @@ class SelectSpellView extends View {
             }
             inputs[0].trim();
             if (inputs.length < 1) {
-                System.out.println("**** You must enter a value. ***");
+                this.console.println("**** You must enter a value. ***");
                 continue;
             }
             valid = true;
@@ -72,7 +72,7 @@ class SelectSpellView extends View {
                 GameMenuView gameMenuView = new GameMenuView();
                 return true;
             default:
-                System.out.println("Invalid menu item");
+                ErrorView.display(this.getClass().getName(),"Invalid menu item");
                 break;
         }
         return false;
