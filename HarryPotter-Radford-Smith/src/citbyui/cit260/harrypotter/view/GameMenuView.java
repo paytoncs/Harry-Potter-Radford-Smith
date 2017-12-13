@@ -37,8 +37,8 @@ class GameMenuView extends View {
     public String[] getInputs() {
 
         String[] inputs = new String[1];
-                                    
-   System.out.println("---------------------------------------------------------------------"
+
+        this.console.println("---------------------------------------------------------------------"
                 + "\n* Hagrid is injured and needs your help. Your objective is to find    *"
                 + "\n* the correct ingredients around the Forbidden Forest to              *"
                 + "\n* heal him. Be wary, the Forbidden Forest is a dangerous              *"
@@ -48,22 +48,23 @@ class GameMenuView extends View {
                 + "\n* a dragons midnight snack. Find chocolate frogs around the forest to *"
                 + "\n* gain health. Good Luck! Remember, Hagrid's life is in your hands.   *"
                 + "\n---------------------------------------------------------------------");
-   
+
         mapView();
 
-        System.out.println("*************************************"
+        this.console.println("*************************************"
                 + "\n* Please select a game menu item. *"
                 + "\n*************************************");
         boolean valid = false;
         while (valid == false) {
-            System.out.println("M - Move to new location");
-            System.out.println("I - Items List");
-            System.out.println("S - Spells List");
-            System.out.println("W - What should I do?");
-            System.out.println("H - What’s my health?");
-            System.out.println("T - How much time do I have? ");
-            System.out.println("H - Help");
-            System.out.println("Q - Quit");
+            this.console.println("M - Move to new location");
+            this.console.println("I - Items List");
+            this.console.println("S - Spells List");
+            this.console.println("W - What should I do?");
+            this.console.println("H - What’s my health?");
+            this.console.println("T - How much time do I have? ");
+            this.console.println("H - Help");
+            this.console.println("G - Save Game");
+            this.console.println("Q - Quit");
             try {
                 inputs[0] = keyboard.readLine();
             } catch (IOException ex) {
@@ -104,8 +105,11 @@ class GameMenuView extends View {
             case "H":
                 healthView();
                 return false;
+            case "G":
+                this.saveGame();
+                break;
             default:
-                System.out.println("Invalid menu item");
+                ErrorView.display(this.getClass().getName(), "Invalid menu item");
                 break;
         }
         return false;
@@ -166,5 +170,10 @@ class GameMenuView extends View {
     private void moveActorView() {
         MoveActorView moveActorView = new MoveActorView();
         moveActorView.displayMoveActorView();
+    }
+
+    private void saveGame() {
+        SaveGameView saveGameView = newSaveGameView();
+        saveGameView.display();
     }
 }
