@@ -16,6 +16,7 @@ import modelbyui.cit260.model.Game;
  */
 public class SaveGameView extends View {
 
+    @Override
     public String[] getInputs() {
 
         String[] inputs = new String[1];

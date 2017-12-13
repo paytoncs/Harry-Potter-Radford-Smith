@@ -8,6 +8,14 @@ package byui.cit260.harrypotter.control;
 import byui.cit260.harrypotter.exception.GameControlException;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.awt.Point;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelbyui.cit260.model.Actor;
 import modelbyui.cit260.model.Game;
 import modelbyui.cit260.model.Location;
@@ -186,10 +194,33 @@ public class GameControl {
         locations[3][4].setScene(scenes[SceneType.friendly_scene.ordinal()]);
     }
 
+    public static Game getGame(String filePath) throws GameControlException, ClassNotFoundException {
+        Game game = null;
+        if (filePath == null) {
+            throw new GameControlException("FilePath cannot be null!!");
+        }
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
+           game = (Game) in.readObject();
+           HarryPotterRadfordSmith.setCurrentGame(game);
+           HarryPotterRadfordSmith.setPlayer(game.player);
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error message: " + ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        return game;
+    }
+    
     public static void saveGame(Game game, String filePath) throws GameControlException {
         if (game == null || filePath == null || filePath.length() < 1) {
             throw new GameControlException("Invalid inputs");
         }
-        
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            out.writeObject(game);
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error message: " + ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
 }
