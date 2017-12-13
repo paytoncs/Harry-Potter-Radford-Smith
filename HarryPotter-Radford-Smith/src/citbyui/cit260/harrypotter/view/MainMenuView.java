@@ -13,10 +13,9 @@ import harrypotter.radford.smith.HarryPotterRadfordSmith;
  *
  * @author paytonsmith
  */
-class MainMenuView extends View{
+class MainMenuView extends View {
 
-
-@Override
+    @Override
     public String[] getInputs() {
 
         String[] inputs = new String[1];
@@ -24,15 +23,17 @@ class MainMenuView extends View{
         this.console.println("*************************************"
                 + "\n* Please select a menu item. *"
                 + "\n*************************************");
-        
-           this.console.println("G - Start Game");
-            this.console.println("H - Get Help");
-            this.console.println("R - Restart Game");
-         inputs[0] = this.getInput("");
+
+        this.console.println("G - Start Game");
+        this.console.println("H - Get Help");
+        this.console.println("R - Restart Game");
+        this.console.println("C - Character List");
+        inputs[0] = this.getInput("");
         return inputs;
 
     }
-@Override
+
+    @Override
     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
         menuItem.toUpperCase();
@@ -46,20 +47,23 @@ class MainMenuView extends View{
             case "R":
                 restartGame();
                 return false;
+            case "C":
+                restartGame();
+                return false;
             default:
-                ErrorView.display(this.getClass().getName(),"Invalid menu item");
+                ErrorView.display(this.getClass().getName(), "Invalid menu item");
                 break;
         }
         return false;
     }
 
     public void startNewGame() {
-    try {
-        GameControl.createNewGame(HarryPotterRadfordSmith.getPlayer());
-    } catch (GameControlException ex) {
-        System.out.println(ex.getMessage());
-        return;
-    }
+        try {
+            GameControl.createNewGame(HarryPotterRadfordSmith.getPlayer());
+        } catch (GameControlException ex) {
+            System.out.println(ex.getMessage());
+            return;
+        }
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenuView();
     }
