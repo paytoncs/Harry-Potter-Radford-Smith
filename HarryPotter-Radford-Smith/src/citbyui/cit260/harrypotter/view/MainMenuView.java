@@ -35,8 +35,8 @@ class MainMenuView extends View{
 @Override
     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
-        menuItem.toUpperCase();
-        switch (inputs[0].toUpperCase()) {
+        menuItem = menuItem.toUpperCase();
+        switch (menuItem) {
             case "G":
                 startNewGame();
                 return false;
