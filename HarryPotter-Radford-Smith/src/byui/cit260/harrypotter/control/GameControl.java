@@ -192,6 +192,11 @@ public class GameControl {
         locations[3][4].setScene(scenes[SceneType.friendly_scene.ordinal()]);
     }
 
+    public static Game getGame() {
+        System.out.println("getGame() stub function called");
+        return new Game();
+    }
+    
     public static void saveGame(Game game, String filePath) throws GameControlException {
         if (game == null || filePath == null || filePath.length() < 1) {
             throw new GameControlException("Invalid inputs");
@@ -201,7 +206,7 @@ public class GameControl {
         } catch (FileNotFoundException ex) {
             System.out.println("Error message: " + ex);
         } catch (IOException ex) {
-            Logger.getLogger(GameControl.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
     }
 }
