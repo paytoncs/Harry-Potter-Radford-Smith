@@ -7,6 +7,8 @@ package citbyui.cit260.harrypotter.view;
 
 import byui.cit260.harrypotter.exception.GameControlException;
 import byui.cit260.harrypotter.control.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,7 +31,9 @@ class StartExistingGameView extends View{
     } catch (GameControlException e) {
         this.console.println(e);
         return false;
-    }
+    }   catch (ClassNotFoundException ex) {
+            Logger.getLogger(StartExistingGameView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
         return true;

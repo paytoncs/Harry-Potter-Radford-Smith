@@ -8,9 +8,11 @@ package byui.cit260.harrypotter.control;
 import byui.cit260.harrypotter.exception.GameControlException;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.awt.Point;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -192,12 +194,21 @@ public class GameControl {
         locations[3][4].setScene(scenes[SceneType.friendly_scene.ordinal()]);
     }
 
-    public static Game getGame(String filePath) throws GameControlException {
+    public static Game getGame(String filePath) throws GameControlException, ClassNotFoundException {
+        Game game = null;
         if (filePath == null) {
-            throw new GameControlException("filePath cannot be null!!");
+            throw new GameControlException("FilePath cannot be null!!");
         }
-        System.out.println("getGame() stub function called");
-        return new Game();
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
+           game = (Game) in.readObject();
+           HarryPotterRadfordSmith.setCurrentGame(game);
+           HarryPotterRadfordSmith.setPlayer(game.player);
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error message: " + ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        return game;
     }
     
     public static void saveGame(Game game, String filePath) throws GameControlException {
