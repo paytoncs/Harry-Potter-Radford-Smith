@@ -9,7 +9,6 @@ import byui.cit260.harrypotter.control.ActorControl;
 import static byui.cit260.harrypotter.control.ActorControl.addHealthItemsToHealth;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelbyui.cit260.model.Game;

@@ -27,7 +27,6 @@ class MainMenuView extends View {
         this.console.println("G - Start Game");
         this.console.println("H - Get Help");
         this.console.println("R - Restart Game");
-        this.console.println("C - Character List");
         inputs[0] = this.getInput("");
         return inputs;
 
@@ -45,9 +44,6 @@ class MainMenuView extends View {
                 getHelp();
                 return false;
             case "R":
-                restartGame();
-                return false;
-            case "C":
                 restartGame();
                 return false;
             default:
