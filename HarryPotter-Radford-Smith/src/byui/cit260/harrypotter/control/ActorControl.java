@@ -6,6 +6,7 @@
 package byui.cit260.harrypotter.control;
 
 import byui.cit260.harrypotter.exception.ActorControlException;
+import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import modelbyui.cit260.model.Player;
 
 /**
@@ -13,9 +14,9 @@ import modelbyui.cit260.model.Player;
  * @author paytonsmith
  */
 public class ActorControl {
-
     public static double addHealthItemsToHealth(double healthItemQuantity, double currentHealth)
             throws ActorControlException {
+        long currenthealth = HarryPotterRadfordSmith.getPlayer().getActor().getHealthItemQuantity();
         if (healthItemQuantity < 1) {
             throw new ActorControlException("You must have at least one health item.");
         }
@@ -34,10 +35,6 @@ public class ActorControl {
         return totalHealth;
     }
 
-    private static double currentHealth() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     // Connor Radford
     public static double totalHealthRemaining(double currentHealth, double hitsTaken) 
         throws ActorControlException {
@@ -54,15 +51,5 @@ public class ActorControl {
         return currentHealth;
     }
 
-    public static void addHealthItemsToHealth(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public static void addHealthItemsToHealth() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public static AddhealthItemsToHealth addhealthItemsToHealth() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+ 
 }

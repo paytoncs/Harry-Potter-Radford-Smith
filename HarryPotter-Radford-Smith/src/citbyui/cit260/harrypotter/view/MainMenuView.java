@@ -61,7 +61,7 @@ class MainMenuView extends View{
         return;
     }
         GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.displayGameMenuView();
+        gameMenuView.display();
     }
 
     public static void restartGame() {

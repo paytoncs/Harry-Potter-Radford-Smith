@@ -9,6 +9,7 @@ import byui.cit260.harrypotter.control.ActorControl;
 import static byui.cit260.harrypotter.control.ActorControl.addHealthItemsToHealth;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelbyui.cit260.model.Game;
@@ -20,18 +21,6 @@ import modelbyui.cit260.model.Location;
  */
 class GameMenuView extends View {
 
-    void displayGameMenuView() {
-
-        boolean endView = false;
-        do {
-            String[] inputs = this.getInputs();
-            if (inputs == null || inputs[0].toUpperCase().equals("Q")) {
-                return;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
-
-    }
 
     public String[] getInputs() {
 
@@ -87,9 +76,6 @@ class GameMenuView extends View {
         String menuItem = inputs[0];
         menuItem.toUpperCase();
         switch (inputs[0].toUpperCase()) {
-            case "D":
-                addHealthItemsToHealth();
-                return false;
             case "S":
                 spellList();
                 return false;
@@ -111,9 +97,8 @@ class GameMenuView extends View {
     }
 
     public static void startNewGame() {
-        ActorControl.addHealthItemsToHealth(HarryPotterRadfordSmith.getPlayer());
         GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.displayGameMenuView();
+        gameMenuView.display();
     }
 
     public static void spellList() {
@@ -129,7 +114,6 @@ class GameMenuView extends View {
     public static void mapView() {
         Game game = HarryPotterRadfordSmith.getCurrentGame();
         Location[][] locations = game.getMap().getLocations();
-        System.out.println(locations);
         int rowCount = game.getMap().getRowCount();
         int columnCount = game.getMap().getColumnCount();
         System.out.println("\t   Marauder's Map");
@@ -142,7 +126,12 @@ class GameMenuView extends View {
                 System.out.print("|");
 
                 if (locations[row][column].visited) {
-                    String symbol = locations[row][column].getScene().getDisplaySymbol();
+                    String symbol;
+                    try {
+                        symbol = locations[row][column].getScene().getDisplaySymbol();
+                    } catch (NullPointerException e) {
+                        symbol = "  Payton";
+                    }
                     System.out.print("  " + symbol + "  ");
                 } else {
                     System.out.print("  ??  ");

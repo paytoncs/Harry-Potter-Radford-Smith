@@ -20,9 +20,9 @@ public class Actor implements Serializable {
     private String name;
     private String description;
     private Point coordinates;
-    private long totalHealth = 100;
+    private long totalHealth = 50;
     private long currentHealth;
-    private long healthItemQuantity;
+    private long healthItemQuantity = 1;
     private long movesLeft;
     private Game[] game = new Game[10];
     private Player player;

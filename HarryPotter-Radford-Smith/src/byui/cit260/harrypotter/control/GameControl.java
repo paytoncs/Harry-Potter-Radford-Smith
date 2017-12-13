@@ -58,6 +58,11 @@ public class GameControl {
     }
 
     public static Actor[] createActors() {
+        Actor harry = new Actor();
+        harry.setName("Harry");
+        harry.setDescription("The hero of the game");
+        harry.setCoordinates(new Point(2, 2));
+        
         Actor hagrid = new Actor();
         hagrid.setName("Hagrid");
         hagrid.setDescription("A loyal friend of Dumbledore and teacher at Hogwarts");
@@ -126,11 +131,18 @@ public class GameControl {
                 locations[row][column] = location;
             }
         }
-        int col = 2;
-        int row = 2;
+        int row;
+        int col;
+        if (HarryPotterRadfordSmith.getMyColumn() == 0 || HarryPotterRadfordSmith.getMyRow() == 0) {
+            col = 2;
+            row = 2;
+        } else {
+            col = HarryPotterRadfordSmith.getMyColumn();
+            row = HarryPotterRadfordSmith.getMyRow();
+        }
         HarryPotterRadfordSmith.setMyRow(row);
         HarryPotterRadfordSmith.setMyColumn(col);
-        locations[2][2].setVisited(true);
+        locations[col][row].setVisited(true);
         return locations;
     }
 
@@ -175,7 +187,7 @@ public class GameControl {
         
         locations[4][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
         locations[3][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
-        locations[2][4].setScene(scenes[SceneType.spider_scene.ordinal()]);        
+        locations[2][1].setScene(scenes[SceneType.spider_scene.ordinal()]);        
         locations[3][4].setScene(scenes[SceneType.friendly_scene.ordinal()]);
     }
 }

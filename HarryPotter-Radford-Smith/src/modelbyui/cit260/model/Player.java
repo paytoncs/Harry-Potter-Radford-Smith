@@ -19,7 +19,7 @@ public class Player implements Serializable {
    
     private String name;
     private Actor actor;
-    private final ArrayList<Actor> actors = new ArrayList<Actor>();
+    private final ArrayList<Actor> actors = new ArrayList<>();
     private Game game;
     private final Game[] games = new Game[1];
     public Location location;
@@ -81,7 +81,7 @@ public class Player implements Serializable {
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + '}';
+        return "Player{" + "name=" + name + "location=" + location + '}';
     }
 
     @Override

@@ -25,6 +25,7 @@ public class MapControl {
         return null;
     }
 
+    
     public static Location moveActor(Player player, String[] inputs, int currentRow, int currentColumn)
             throws MapControlException {
         if (player == null) {
@@ -34,25 +35,6 @@ public class MapControl {
         Game game = HarryPotterRadfordSmith.getCurrentGame();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
-
-        // If direction is North then
-        //  newRow = oldRow - 1
-        //  newColumn = oldColumn
-        // else If direction is South then
-        //  newRow = oldRow + 1
-        //  newColumn = oldColumn
-        // else If direction is East then
-        //  newRow = oldRow
-        //  newColumn = oldColumn + 1
-        // else If direction is West then
-        //  newRow = oldRow
-        //  newColumn = oldColumn - 1
-
-      
-        Location oldLocation = locations[currentRow][currentColumn];
-
-     //   int currentRow = actors.;//getLocation().getRow();
-     //   int currentColumn = actors.getLocation().getColumn();     
         int newRow = 0;
         int newColumn = 0;
         switch (inputs[0].toUpperCase()) {
@@ -76,11 +58,11 @@ public class MapControl {
                 System.out.println("You can't leave, Hagrid needs you.");
                 break;
         }
-
+        HarryPotterRadfordSmith.setMyColumn(newColumn);
+        HarryPotterRadfordSmith.setMyRow(newRow);
         Location newLocation = locations[newRow][newColumn];
-
         player.setLocation(newLocation);
-        return new Location();
+        return newLocation;
     }
 
     public static double calcStepsRemaining(double totalMapColumns, double totalMapRows, double totalStepsTaken) {

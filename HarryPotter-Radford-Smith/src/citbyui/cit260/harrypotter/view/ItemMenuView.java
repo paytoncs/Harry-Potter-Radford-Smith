@@ -42,7 +42,7 @@ public class ItemMenuView extends View {
         while (valid == false) {
             System.out.println("M - Marauder’s map");
             System.out.println("C - Chocolate frogs (Replenishes Health)");
-            System.out.println("B - Broom");
+            System.out.println("W - Wand");
             System.out.println("H - Help - What do the items do?");
             System.out.println("\n*************************************");
             System.out.println(" Press E to exit this menu?");
@@ -74,10 +74,10 @@ public class ItemMenuView extends View {
                 GameMenuView.mapView();
                 return false;
             case "C":
-                addHealthItemsToHealth();
+                UseHealthView();
                 return false;
-            case "B":
-                ItemControl.useBroomstick();
+            case "W":
+                wandView();
             case "H":
                 System.out.println(" 1. Marauder’s map (keep track of where you are.) \n 2. Invisibility cloak (Hides you from enemies for 3 moves.) \n 3. Antidotes (Heals you from dragon burns.) \n 4. Chocolate frogs (Heals you.) \n 5. Broom (Quickly move to any spot on the map.)");
                 return false;
@@ -90,7 +90,13 @@ public class ItemMenuView extends View {
         return false;
     }
 
-    public static void addHealthItemsToHealth() {
+    public static void UseHealthView() {
         UseHealthItemView useHealthItemView = new UseHealthItemView();
-        useHealthItemView.displayHealthItemView();
-    }}
+        useHealthItemView.display();
+    }
+
+    private void wandView() {
+SelectSpellView selectSpellView  = new SelectSpellView();
+        selectSpellView.displaySelectSpellView();    
+                }
+}
