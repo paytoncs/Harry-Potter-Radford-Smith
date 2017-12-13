@@ -173,7 +173,7 @@ class GameMenuView extends View {
     }
 
     private void saveGame() {
-        SaveGameView saveGameView = newSaveGameView();
+        SaveGameView saveGameView = new SaveGameView();
         saveGameView.display();
     }
 }
