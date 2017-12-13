@@ -25,7 +25,7 @@ class StartExistingGameView extends View{
     public boolean doAction(String[] inputs) {
     String filePath = inputs[1];
     try {
-        getGame();
+        GameControl.getGame(filePath);
     } catch (GameControlException e) {
         this.console.println(e);
         return false;

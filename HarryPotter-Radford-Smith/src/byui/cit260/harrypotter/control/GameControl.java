@@ -192,7 +192,10 @@ public class GameControl {
         locations[3][4].setScene(scenes[SceneType.friendly_scene.ordinal()]);
     }
 
-    public static Game getGame() {
+    public static Game getGame(String filePath) throws GameControlException {
+        if (filePath == null) {
+            throw new GameControlException("filePath cannot be null!!");
+        }
         System.out.println("getGame() stub function called");
         return new Game();
     }
