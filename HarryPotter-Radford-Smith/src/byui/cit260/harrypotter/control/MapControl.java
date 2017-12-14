@@ -34,6 +34,7 @@ public class MapControl {
         Location[][] locations = map.getLocations();
         int newRow = 0;
         int newColumn = 0;
+
         switch (inputs[0].toUpperCase()) {
             case "N":
                 newRow = currentRow - 1;
@@ -51,6 +52,10 @@ public class MapControl {
                 newRow = currentRow;
                 newColumn = currentColumn - 1;
                 break;
+            case "P":
+                //Move to random location
+                portKey();
+                break;
             default:
                 System.out.println("That's out of bounds.");
                 break;
@@ -61,6 +66,19 @@ public class MapControl {
         player.setLocation(newLocation);
         return newLocation;
     }
+
+    private static Location portKey() {
+        Game game = HarryPotterRadfordSmith.getCurrentGame();
+        Map map = game.getMap();
+        Location[][] locations = map.getLocations();
+        int newRow = 0;
+        int newColumn = 0;
+        HarryPotterRadfordSmith.setMyColumn(newColumn);
+        HarryPotterRadfordSmith.setMyRow(newRow);
+        Location previousLocation = locations[newRow][newColumn];
+        return previousLocation;
+    }
+    
 
     public static double calcStepsRemaining(double totalMapColumns, double totalMapRows, double totalStepsTaken) {
 
@@ -83,6 +101,5 @@ public class MapControl {
         return totalStepsRemaining;
 
     }
-
 
 }
