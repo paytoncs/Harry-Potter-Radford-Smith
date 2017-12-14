@@ -63,9 +63,8 @@ class GameMenuView extends View {
             this.console.println("T - How much time do I have? ");
             this.console.println("H - Help");
             this.console.println("G - Save Game");
-
             this.console.println("Y - Print out a list of spells");
-
+            this.console.println("O - Print out a list of items");
             this.console.println("Q - Quit");
             try {
                 inputs[0] = keyboard.readLine();
@@ -89,11 +88,8 @@ class GameMenuView extends View {
     @Override
     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
-
-        menuItem.toUpperCase();
-        switch (inputs[0].toUpperCase()) {
-
-
+        menuItem = menuItem.toUpperCase();
+        switch (menuItem) {
             case "S":
                 spellList();
                 return false;
@@ -113,10 +109,12 @@ class GameMenuView extends View {
             case "Y":
                 printSpells();
                 break;
+            case "O":
+                printItems();
+                break;
             case "Q":
                 quitGame();
-            break;
-
+                break;
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
                 break;
@@ -128,7 +126,7 @@ class GameMenuView extends View {
         QuitGameView quitGame = new QuitGameView();
         quitGame.display();
     }
-    
+
     public static void startNewGame() {
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
@@ -165,10 +163,7 @@ class GameMenuView extends View {
                         symbol = locations[row][column].getScene().getDisplaySymbol();
                         blockDescription = locations[row][column].getScene().getDescription();
                     } catch (NullPointerException e) {
-
-
                         symbol = "  ";
-
                     }
                     System.out.print("  " + symbol + "  ");
                 } else {
@@ -189,7 +184,12 @@ class GameMenuView extends View {
         PrintSpellsView printSpells = new PrintSpellsView();
         printSpells.display();
     }
-    
+
+    public static void printItems() {
+        PrintItemsView printItems = new PrintItemsView();
+        printItems.display();
+    }
+
     public static void healthView() {
         SelectHealthView selectHealthView = new SelectHealthView();
         selectHealthView.displaySelectHealthView();

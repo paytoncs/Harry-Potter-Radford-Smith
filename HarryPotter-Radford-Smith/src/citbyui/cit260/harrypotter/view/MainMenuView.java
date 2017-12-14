@@ -24,12 +24,10 @@ class MainMenuView extends View {
                 + "\n* Please select a menu item. *"
                 + "\n*************************************");
 
- 
         this.console.println("G - Start Game");
         this.console.println("H - Get Help");
         this.console.println("R - Restart Game");
         inputs[0] = this.getInput("");
-
         return inputs;
 
     }
@@ -49,9 +47,7 @@ class MainMenuView extends View {
                 restartGame();
                 return false;
             default:
-
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
-
                 break;
         }
         return false;

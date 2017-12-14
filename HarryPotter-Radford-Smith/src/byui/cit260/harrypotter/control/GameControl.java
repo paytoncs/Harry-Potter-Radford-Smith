@@ -250,5 +250,35 @@ public class GameControl {
         }
     }
 
+    public static Game getGame(String filePath) throws GameControlException, ClassNotFoundException {
+        Game game = null;
+        if (filePath == null) {
+            throw new GameControlException("FilePath cannot be null!!");
+        }
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
+            game = (Game) in.readObject();
+            HarryPotterRadfordSmith.setCurrentGame(game);
+            HarryPotterRadfordSmith.setPlayer(game.player);
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error message: " + ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        return game;
+    }
+
+    public static void saveGame(Game game, String filePath) throws GameControlException {
+        if (game == null || filePath == null || filePath.length() < 1) {
+            throw new GameControlException("Invalid inputs");
+        }
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            out.writeObject(game);
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error message: " + ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }
+
 
 }

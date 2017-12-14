@@ -38,11 +38,10 @@ public class SaveGameView extends View {
         try {
             GameControl.saveGame(game, filePath);
         } catch (GameControlException ex) {
-
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
             return false;
         }
-        System.out.println("Your game was saved");
-            return false;
-        }
+        this.console.println("Your game was saved");
+        return true;
+    }
 }

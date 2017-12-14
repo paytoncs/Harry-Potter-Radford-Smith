@@ -23,24 +23,15 @@ class UseHealthItemView extends View {
 
         String[] inputs = new String[1];
 
-
         this.console.println("*************************************"
                 + "\n* Would you like to use your health items? *"
                 + "\n*************************************");
         boolean valid = false;
         while (valid == false) {
-
             this.console.println("Y - Yes");
             this.console.println("N - No, Return to game menu.");
             this.console.println("W - How do health items work? ");
             this.console.println("D - How much would this item help my health?");
-
-
-            this.console.println("Y - Yes");
-            this.console.println("N - No, Return to game menu.");
-            this.console.println("W - How do health items work? ");
-            this.console.println("D - How much would this item help my health?");
-
             try {
                 inputs[0] = keyboard.readLine();
             } catch (IOException ex) {
@@ -48,9 +39,7 @@ class UseHealthItemView extends View {
             }
             inputs[0].trim();
             if (inputs.length < 1) {
-
                 ErrorView.display(this.getClass().getName(),"**** You must enter a value. ***");
-
                 continue;
             }
             valid = true;
@@ -81,13 +70,10 @@ class UseHealthItemView extends View {
                 return false;
             case "W":
                 this.console.println("Health items will replenish your health once you have been damaged from encounters. Each health item provides 10 health points. ");
-
                 return true;
              
                 
             default:
-
-
                 ErrorView.display(this.getClass().getName(),"Invalid menu item");
                 break;
         }
