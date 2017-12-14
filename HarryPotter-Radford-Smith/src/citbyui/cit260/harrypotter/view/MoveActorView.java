@@ -37,7 +37,7 @@ public class MoveActorView extends View {
         this.console.println("S - SOUTH");
         this.console.println("E - EAST");
         this.console.println("W - WEST");
-        this.console.println("P - Port Key (move to random location)");
+        this.console.println("P - Port Key (Teleport back to Hagrid)");
 
         String input1 = this.getInput("Enter which direction you want to go.");
         inputs[0] = input1;

@@ -53,8 +53,43 @@ public class MapControl {
                 newColumn = currentColumn - 1;
                 break;
             case "P":
-                //Move to random location
-                portKey();
+                //Teleport to Hagrid
+                if (newRow == 0 || newRow >= 2 && newColumn <= 1 || newColumn >= 3) {
+                    newRow = currentRow + 1;
+                    newColumn = currentColumn;
+                }
+                else if (newRow >= 1 && newColumn <= 1 || newColumn >= 3) {
+                    newRow = currentRow + 2;
+                    newColumn = currentColumn;
+                }
+                else if (newRow <= 2 || newRow == 4 && newColumn <= 1 || newColumn >= 3) {
+                    newRow = currentRow - 1;
+                    newColumn = currentColumn;
+                }
+                else if (newRow <= 1 || newRow >= 3 && newColumn <= 3) {
+                    newRow = currentRow - 2;
+                    newColumn = currentColumn;
+                }
+                else if (newRow == 0 && newColumn <= 1 || newColumn >= 3) {
+                    newRow = currentRow;
+                    newColumn = currentColumn + 1;
+                }
+                else if (newRow >= 1 && newColumn <= 1 || newColumn >= 3) {
+                    newRow = currentRow;
+                    newColumn = currentColumn + 2;
+                }
+                else if (newRow == 3 && newColumn <= 1 || newColumn >= 3) {
+                    newRow = currentRow;
+                    newColumn = currentColumn - 1;
+                }
+                else if (newRow == 4 && newColumn <= 1 || newColumn >= 3) {
+                    newRow = currentRow;
+                    newColumn = currentColumn - 2;
+                }
+                else if (newRow == 1 && newColumn == 1 ) {
+                    newRow = currentRow + 1;
+                    newColumn = currentColumn + 1;
+                }
                 break;
             default:
                 System.out.println("That's out of bounds.");
@@ -66,19 +101,6 @@ public class MapControl {
         player.setLocation(newLocation);
         return newLocation;
     }
-
-    private static Location portKey() {
-        Game game = HarryPotterRadfordSmith.getCurrentGame();
-        Map map = game.getMap();
-        Location[][] locations = map.getLocations();
-        int newRow = 0;
-        int newColumn = 0;
-        HarryPotterRadfordSmith.setMyColumn(newColumn);
-        HarryPotterRadfordSmith.setMyRow(newRow);
-        Location previousLocation = locations[newRow][newColumn];
-        return previousLocation;
-    }
-    
 
     public static double calcStepsRemaining(double totalMapColumns, double totalMapRows, double totalStepsTaken) {
 

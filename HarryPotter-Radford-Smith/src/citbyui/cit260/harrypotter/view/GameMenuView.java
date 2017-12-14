@@ -25,6 +25,7 @@ class GameMenuView extends View {
         boolean endView = false;
         do {
             String[] inputs = this.getInputs();
+
             if (inputs == null || inputs[0].toUpperCase().equals("Q")) {
                 return;
             }
