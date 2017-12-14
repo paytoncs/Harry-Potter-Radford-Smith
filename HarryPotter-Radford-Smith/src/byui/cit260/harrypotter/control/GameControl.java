@@ -8,6 +8,14 @@ package byui.cit260.harrypotter.control;
 import byui.cit260.harrypotter.exception.GameControlException;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.awt.Point;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelbyui.cit260.model.Actor;
 import modelbyui.cit260.model.Game;
 import modelbyui.cit260.model.Location;
@@ -22,8 +30,8 @@ import modelbyui.cit260.model.SceneType;
  */
 public class GameControl {
 
-    public static Player savePlayer(String playerName) 
-        throws GameControlException {
+    public static Player savePlayer(String playerName)
+            throws GameControlException {
         if (playerName == null || playerName.length() < 1) {
             throw new GameControlException("That name is too short.");
         }
@@ -33,8 +41,8 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) 
-        throws GameControlException {
+    public static void createNewGame(Player player)
+            throws GameControlException {
         if (player == null) {
             throw new GameControlException("You haven't input a valid player.");
         }
@@ -54,7 +62,7 @@ public class GameControl {
             throw new GameControlException("You need to put in an input");
         }
         game.setMap(map);
-        
+
     }
 
     public static Actor[] createActors() {
@@ -96,8 +104,8 @@ public class GameControl {
         return new Actor[1];
     }
 
-    public static Map createMap(int noOfRows, int noOfColumns) 
-        throws GameControlException {
+    public static Map createMap(int noOfRows, int noOfColumns)
+            throws GameControlException {
         if (noOfRows < 0 || noOfColumns < 0) {
             throw new GameControlException("That input is too small.");
         }
@@ -184,10 +192,40 @@ public class GameControl {
         Location[][] locations = map.getLocations();
         // hagrid_scene is where the end user will start
         locations[2][2].setScene(scenes[SceneType.hagrid_scene.ordinal()]);
-        
+
         locations[4][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
         locations[3][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
-        locations[2][1].setScene(scenes[SceneType.spider_scene.ordinal()]);        
+        locations[2][1].setScene(scenes[SceneType.spider_scene.ordinal()]);
         locations[3][4].setScene(scenes[SceneType.friendly_scene.ordinal()]);
+    }
+
+    public static Game getGame(String filePath) throws GameControlException, ClassNotFoundException {
+        Game game = null;
+        if (filePath == null) {
+            throw new GameControlException("FilePath cannot be null!!");
+        }
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
+           game = (Game) in.readObject();
+           HarryPotterRadfordSmith.setCurrentGame(game);
+           HarryPotterRadfordSmith.setPlayer(game.player);
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error message: " + ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        return game;
+    }
+    
+    public static void saveGame(Game game, String filePath) throws GameControlException {
+        if (game == null || filePath == null || filePath.length() < 1) {
+            throw new GameControlException("Invalid inputs");
+        }
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            out.writeObject(game);
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error message: " + ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
 }

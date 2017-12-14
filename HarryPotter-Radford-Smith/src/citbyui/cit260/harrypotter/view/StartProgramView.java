@@ -20,7 +20,7 @@ public class StartProgramView extends View {
 
         String[] inputs = new String[2];
 
-        System.out.println("*************************************"
+        this.console.println("*************************************"
                 + "\n* Welcome to The Harry Potter Game! *"
                 + "\n*************************************");
         String playerName = this.getInput("\nPlease enter your name:");
@@ -41,7 +41,7 @@ public class StartProgramView extends View {
             int age = Integer.parseInt(inputs[1]);
             player = GameControl.savePlayer(playerName);
         } catch (NumberFormatException e) {
-            System.out.println("It needs to be a valid number");
+            ErrorView.display(this.getClass().getName(),"It needs to be a valid number");
             return false;   
         } catch (GameControlException gce) {
             System.out.println(gce.getMessage());
@@ -49,11 +49,11 @@ public class StartProgramView extends View {
         }
 
         if (player == null) {
-            System.out.println("Could not create player. " + "Enter a different name.");
+            ErrorView.display(this.getClass().getName(),"Could not create player. " + "Enter a different name.");
             return false;
         }
 
-        System.out.println("================================================="
+        this.console.println("================================================="
                 + "\nWelcome " + playerName + ". \nWe hope you have a lot of fun!"
                 + "\n=================================================");
         MainMenuView mainMenuView = new MainMenuView();

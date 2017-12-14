@@ -21,13 +21,13 @@ class MainMenuView extends View{
 
         String[] inputs = new String[1];
 
-        System.out.println("*************************************"
+        this.console.println("*************************************"
                 + "\n* Please select a menu item. *"
                 + "\n*************************************");
         
-           System.out.println("G - Start Game");
-            System.out.println("H - Get Help");
-            System.out.println("R - Restart Game");
+           this.console.println("G - Start Game");
+            this.console.println("H - Get Help");
+            this.console.println("R - Restart Game");
          inputs[0] = this.getInput("");
         return inputs;
 
@@ -35,8 +35,8 @@ class MainMenuView extends View{
 @Override
     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
-        menuItem.toUpperCase();
-        switch (inputs[0].toUpperCase()) {
+        menuItem = menuItem.toUpperCase();
+        switch (menuItem) {
             case "G":
                 startNewGame();
                 return false;
@@ -47,7 +47,7 @@ class MainMenuView extends View{
                 restartGame();
                 return false;
             default:
-                System.out.println("Invalid menu item");
+                ErrorView.display(this.getClass().getName(),"Invalid menu item");
                 break;
         }
         return false;
@@ -65,8 +65,8 @@ class MainMenuView extends View{
     }
 
     public static void restartGame() {
-        StartExistingGameView startExistingGameView = new StartExistingGameView();
-        startExistingGameView.displayStartExistingGameView();
+        StartExistingGameView startExistingGameView = new StartExistingGameView() {};
+        startExistingGameView.display();
 
     }
 
