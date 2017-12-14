@@ -36,6 +36,5 @@ public class QuitGameView extends View {
             System.exit(0);
             return false;
         }
-    }
-    
+    }   
 }
