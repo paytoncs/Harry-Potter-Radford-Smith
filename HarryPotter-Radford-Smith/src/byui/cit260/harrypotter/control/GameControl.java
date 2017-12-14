@@ -111,7 +111,6 @@ public class GameControl {
         map.setLocations(locations);
 
         Scene[] scenes = GameControl.createScenes();
-        GameControl.assignItemsToScenes(scenes, locations);
         GameControl.assignScenesToLocations(map, scenes);
 
         return map;
@@ -175,10 +174,6 @@ public class GameControl {
         scenes[SceneType.hagrid_scene.ordinal()] = scene8;
 
         return scenes;
-    }
-
-    public static void assignItemsToScenes(Scene[] scenes, Location[][] locations) {
-        System.out.println("assignItemsToScenes called");
     }
 
     public static void assignScenesToLocations(Map map, Scene[] scenes) {
