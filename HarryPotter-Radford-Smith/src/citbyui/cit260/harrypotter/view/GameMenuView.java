@@ -29,10 +29,11 @@ class GameMenuView extends View {
                 return;
             }
             endView = doAction(inputs);
-        } while (endView != true);
+        } while (!endView);
 
     }
 
+    @Override
     public String[] getInputs() {
 
         String[] inputs = new String[1];
