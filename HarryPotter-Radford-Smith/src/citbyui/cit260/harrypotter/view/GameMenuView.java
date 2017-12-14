@@ -123,7 +123,8 @@ class GameMenuView extends View {
     }
 
     public static void quitGame() {
-        Runtime.getRuntime().exit(0);
+        QuitGameView quitGame = new QuitGameView();
+        quitGame.display();
     }
     
     public static void startNewGame() {
