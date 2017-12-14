@@ -65,6 +65,7 @@ class GameMenuView extends View {
             this.console.println("H - Help");
             this.console.println("G - Save Game");
             this.console.println("Y - Print out a list of spells");
+            this.console.println("O - Print out a list of items");
             this.console.println("Q - Quit");
             try {
                 inputs[0] = keyboard.readLine();
@@ -88,7 +89,7 @@ class GameMenuView extends View {
     @Override
     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
-         menuItem = menuItem.toUpperCase();
+        menuItem = menuItem.toUpperCase();
         switch (menuItem) {
             case "D":
                 addHealthItemsToHealth();
@@ -112,9 +113,12 @@ class GameMenuView extends View {
             case "Y":
                 printSpells();
                 break;
+            case "O":
+                printItems();
+                break;
             case "Q":
                 quitGame();
-            break;
+                break;
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
                 break;
@@ -126,7 +130,7 @@ class GameMenuView extends View {
         QuitGameView quitGame = new QuitGameView();
         quitGame.display();
     }
-    
+
     public static void startNewGame() {
         ActorControl.addHealthItemsToHealth(HarryPotterRadfordSmith.getPlayer());
         GameMenuView gameMenuView = new GameMenuView();
@@ -185,7 +189,12 @@ class GameMenuView extends View {
         PrintSpellsView printSpells = new PrintSpellsView();
         printSpells.display();
     }
-    
+
+    public static void printItems() {
+        PrintItemsView printItems = new PrintItemsView();
+        printItems.display();
+    }
+
     public static void healthView() {
         SelectHealthView selectHealthView = new SelectHealthView();
         selectHealthView.displaySelectHealthView();
