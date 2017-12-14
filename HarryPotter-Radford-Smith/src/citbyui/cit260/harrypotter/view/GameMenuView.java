@@ -64,6 +64,7 @@ class GameMenuView extends View {
             this.console.println("T - How much time do I have? ");
             this.console.println("H - Help");
             this.console.println("G - Save Game");
+            this.console.println("Y - Print out a list of spells");
             this.console.println("Q - Quit");
             try {
                 inputs[0] = keyboard.readLine();
@@ -107,6 +108,9 @@ class GameMenuView extends View {
                 return false;
             case "G":
                 this.saveGame();
+                break;
+            case "Y":
+                printSpells();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
@@ -162,6 +166,11 @@ class GameMenuView extends View {
         System.out.println("--------------------------------------");
     }
 
+    public static void printSpells() {
+        PrintSpellsView printSpells = new PrintSpellsView();
+        printSpells.display();
+    }
+    
     public static void healthView() {
         SelectHealthView selectHealthView = new SelectHealthView();
         selectHealthView.displaySelectHealthView();

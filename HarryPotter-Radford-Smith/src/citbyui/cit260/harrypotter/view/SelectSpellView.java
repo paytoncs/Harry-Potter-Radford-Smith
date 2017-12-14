@@ -36,7 +36,7 @@ class SelectSpellView extends View {
                 + "\n* Spells List *"
                 + "\n*************************************");
         boolean valid = false;
-        while (valid == false) {
+        while (!valid) {
             this.console.println("* Lumos - Use this spell to light the area *");
             this.console.println("* Expecto Patronum - Use to defend against certain creature. *");
             this.console.println("* Incendio - Used for attacking certain creatures *");
