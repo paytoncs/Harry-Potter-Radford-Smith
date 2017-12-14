@@ -112,6 +112,8 @@ class GameMenuView extends View {
             case "Y":
                 printSpells();
                 break;
+            case "Q":
+                return true;
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
                 break;

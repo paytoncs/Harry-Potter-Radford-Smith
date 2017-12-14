@@ -36,11 +36,11 @@ public class PrintSpellsView extends View {
     public boolean doAction(String[] inputs) {
         String filePath = inputs[0];
             try (PrintWriter out = new PrintWriter(new FileWriter("C:\\" + filePath + ".txt"))) {
-                out.print("Lumos - Use this spell to light the area\n");
-                out.print("Expecto Patronum - Use to defend against certain creature.\n");
-                out.print("Incendio - Used for attacking certain creatures\n");
-                out.print("Wingardium Leviosa - Helps lift objects\n");
-                out.print("Accio - Helps retrieve certain items\n");
+                out.println("Lumos - Use this spell to light the area\n");
+                out.println("Expecto Patronum - Use to defend against certain creature.\n");
+                out.println("Incendio - Used for attacking certain creatures\n");
+                out.println("Wingardium Leviosa - Helps lift objects\n");
+                out.println("Accio - Helps retrieve certain items\n");
                 out.close();
             } catch (IOException ex) {
                 ErrorView.display(this.getClass().getName(), "file not printed");
