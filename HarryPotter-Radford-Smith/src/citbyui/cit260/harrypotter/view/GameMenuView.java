@@ -25,7 +25,7 @@ class GameMenuView extends View {
         boolean endView = false;
         do {
             String[] inputs = this.getInputs();
-            if (inputs == null || inputs[0].toUpperCase().equals("Q")) {
+            if (inputs == null) {
                 return;
             }
             endView = doAction(inputs);
@@ -114,7 +114,6 @@ class GameMenuView extends View {
                 break;
             case "Q":
                 quitGame();
-                System.out.println("Reached me up top!!");
             break;
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
@@ -124,7 +123,6 @@ class GameMenuView extends View {
     }
 
     public static void quitGame() {
-        System.out.println("Reached me!");
         QuitGameView quitGame = new QuitGameView();
         quitGame.display();
     }

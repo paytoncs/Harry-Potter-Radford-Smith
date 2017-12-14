@@ -28,11 +28,11 @@ public class QuitGameView extends View {
         decision = decision.toUpperCase();
         switch(decision) {
         case "Y":
-            return true;
-        case "N":
             return false;
-        default:
+        case "N":
             return true;
+        default:
+            return false;
         }
     }
     
