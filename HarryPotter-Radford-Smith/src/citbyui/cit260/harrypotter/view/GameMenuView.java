@@ -113,7 +113,8 @@ class GameMenuView extends View {
                 printSpells();
                 break;
             case "Q":
-                return true;
+                quitGame();
+                return false;
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
                 break;
@@ -121,6 +122,10 @@ class GameMenuView extends View {
         return false;
     }
 
+    public static void quitGame() {
+        Runtime.getRuntime().exit(0);
+    }
+    
     public static void startNewGame() {
         ActorControl.addHealthItemsToHealth(HarryPotterRadfordSmith.getPlayer());
         GameMenuView gameMenuView = new GameMenuView();

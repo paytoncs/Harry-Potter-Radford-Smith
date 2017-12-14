@@ -27,7 +27,6 @@ class MainMenuView extends View {
         this.console.println("G - Start Game");
         this.console.println("H - Get Help");
         this.console.println("R - Restart Game");
-        this.console.println("Q - Quit Game");
         inputs[0] = this.getInput("");
         return inputs;
 
@@ -47,8 +46,6 @@ class MainMenuView extends View {
             case "R":
                 restartGame();
                 return false;
-            case "Q":
-                return true;
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
                 break;
