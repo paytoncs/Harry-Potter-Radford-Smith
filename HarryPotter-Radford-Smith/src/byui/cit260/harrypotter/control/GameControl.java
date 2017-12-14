@@ -134,8 +134,8 @@ public class GameControl {
         int row;
         int col;
         if (HarryPotterRadfordSmith.getMyColumn() == 0 || HarryPotterRadfordSmith.getMyRow() == 0) {
-            col = 2;
-            row = 2;
+            col = 1;
+            row = 1;
         } else {
             col = HarryPotterRadfordSmith.getMyColumn();
             row = HarryPotterRadfordSmith.getMyRow();

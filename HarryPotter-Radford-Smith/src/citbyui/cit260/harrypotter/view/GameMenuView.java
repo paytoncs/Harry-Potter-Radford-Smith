@@ -175,6 +175,10 @@ class GameMenuView extends View {
         }
         System.out.println("--------------------------------------");
         System.out.println(blockDescription);
+        if (blockDescription == "You are where Hagrid is.") {
+            System.out.println("Congrats, you found Hagrid!!!");
+            System.exit(0);
+        }
     }
 
     public static void printSpells() {
