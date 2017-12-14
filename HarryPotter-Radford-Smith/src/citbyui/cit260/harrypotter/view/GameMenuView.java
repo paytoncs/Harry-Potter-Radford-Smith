@@ -146,6 +146,7 @@ class GameMenuView extends View {
     public static void mapView() {
         Game game = HarryPotterRadfordSmith.getCurrentGame();
         Location[][] locations = game.getMap().getLocations();
+        String blockDescription = "";
         int rowCount = game.getMap().getRowCount();
         int columnCount = game.getMap().getColumnCount();
         System.out.println("\t   Marauder's Map");
@@ -161,6 +162,7 @@ class GameMenuView extends View {
                     String symbol;
                     try {
                         symbol = locations[row][column].getScene().getDisplaySymbol();
+                        blockDescription = locations[row][column].getScene().getDescription();
                     } catch (NullPointerException e) {
                         symbol = "  ";
                     }
@@ -172,6 +174,7 @@ class GameMenuView extends View {
             System.out.print("|\n");
         }
         System.out.println("--------------------------------------");
+        System.out.println(blockDescription);
     }
 
     public static void printSpells() {
