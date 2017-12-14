@@ -30,11 +30,8 @@ public class QuitGameView extends View {
         case "Y":
             System.exit(0);
             return false;
-        case "N":
-            return true;
         default:
-            System.exit(0);
-            return false;
+            return true;
         }
     }   
 }
