@@ -96,4 +96,5 @@ public class ItemMenuView extends View {
     public static void addHealthItemsToHealth() {
         UseHealthItemView useHealthItemView = new UseHealthItemView();
         useHealthItemView.displayHealthItemView();
-    }}
+    }
+}

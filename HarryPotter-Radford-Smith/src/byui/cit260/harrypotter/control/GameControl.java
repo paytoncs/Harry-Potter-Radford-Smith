@@ -111,7 +111,6 @@ public class GameControl {
         map.setLocations(locations);
 
         Scene[] scenes = GameControl.createScenes();
-        GameControl.assignItemsToScenes(scenes, locations);
         GameControl.assignScenesToLocations(map, scenes);
 
         return map;
@@ -135,8 +134,8 @@ public class GameControl {
         int row;
         int col;
         if (HarryPotterRadfordSmith.getMyColumn() == 0 || HarryPotterRadfordSmith.getMyRow() == 0) {
-            col = 2;
-            row = 2;
+            col = 1;
+            row = 1;
         } else {
             col = HarryPotterRadfordSmith.getMyColumn();
             row = HarryPotterRadfordSmith.getMyRow();
@@ -171,14 +170,10 @@ public class GameControl {
         Scene scene7 = new Scene("You've found an ingredient for Hagrid!", "IT", "Ingredient");
         scenes[SceneType.found_main_item_scene.ordinal()] = scene7;
 
-        Scene scene8 = new Scene("This is where Hagrid is.", "HA", "Hagrid");
+        Scene scene8 = new Scene("You are where Hagrid is.", "HA", "Hagrid");
         scenes[SceneType.hagrid_scene.ordinal()] = scene8;
 
         return scenes;
-    }
-
-    public static void assignItemsToScenes(Scene[] scenes, Location[][] locations) {
-        System.out.println("assignItemsToScenes called");
     }
 
     public static void assignScenesToLocations(Map map, Scene[] scenes) {
