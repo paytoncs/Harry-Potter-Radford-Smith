@@ -42,10 +42,11 @@ public class PrintSpellsView extends View {
                 out.println("Wingardium Leviosa - Helps lift objects\n");
                 out.println("Accio - Helps retrieve certain items\n");
                 out.close();
+                this.console.println("Your report was successfully printed at: C:\\" + filePath + ".txt"); 
             } catch (IOException ex) {
                 ErrorView.display(this.getClass().getName(), "file not printed");
+                System.out.println(ex);
         }
-        this.console.println("Your report was successfully printed at: C:\\" + filePath + ".txt"); 
         return true;
     }
     
