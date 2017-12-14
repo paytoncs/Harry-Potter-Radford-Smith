@@ -170,7 +170,7 @@ public class GameControl {
         Scene scene7 = new Scene("You've found an ingredient for Hagrid!", "IT", "Ingredient");
         scenes[SceneType.found_main_item_scene.ordinal()] = scene7;
 
-        Scene scene8 = new Scene("This is where Hagrid is.", "HA", "Hagrid");
+        Scene scene8 = new Scene("You are where Hagrid is.", "HA", "Hagrid");
         scenes[SceneType.hagrid_scene.ordinal()] = scene8;
 
         return scenes;
