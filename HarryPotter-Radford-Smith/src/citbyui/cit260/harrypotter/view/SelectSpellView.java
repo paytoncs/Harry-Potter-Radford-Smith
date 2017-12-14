@@ -15,18 +15,6 @@ import java.util.logging.Logger;
  */
 class SelectSpellView extends View {
 
-    void displaySelectSpellView() {
-        boolean endView = false;
-        do {
-            String[] inputs = this.getInputs();
-            if (inputs == null || inputs[0].toUpperCase().equals("Q")) {
-                return;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
-
-    }
-
     @Override
     public String[] getInputs() {
 
@@ -36,15 +24,17 @@ class SelectSpellView extends View {
                 + "\n* Spells List *"
                 + "\n*************************************");
         boolean valid = false;
-        while (valid == false) {
+
+        while (!valid) {
+
             this.console.println("* Lumos - Use this spell to light the area *");
             this.console.println("* Expecto Patronum - Use to defend against certain creature. *");
             this.console.println("* Incendio - Used for attacking certain creatures *");
             this.console.println("* Wingardium Leviosa - Helps lift objects *");
             this.console.println("* Accio - Helps retrieve certain items *");
             this.console.println("*************************************"
-                + "\n* E - Exit Spells List *"
-                + "\n*************************************");
+                    + "\n* E - Exit Spells List *"
+                    + "\n*************************************");
             try {
                 inputs[0] = keyboard.readLine();
             } catch (IOException ex) {
@@ -58,9 +48,7 @@ class SelectSpellView extends View {
             valid = true;
 
         }
-
         return inputs;
-
     }
 
     @Override
@@ -72,7 +60,7 @@ class SelectSpellView extends View {
                 GameMenuView gameMenuView = new GameMenuView();
                 return true;
             default:
-                ErrorView.display(this.getClass().getName(),"Invalid menu item");
+                ErrorView.display(this.getClass().getName(), "Invalid menu item");
                 break;
         }
         return false;

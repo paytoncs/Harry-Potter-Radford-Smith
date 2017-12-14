@@ -47,6 +47,7 @@ public class ItemMenuView extends View {
             System.out.println("\n*************************************");
             System.out.println(" Press E to exit this menu?");
             System.out.println("*************************************");
+
             this.console.println("M - Marauder’s map");
             this.console.println("I - Invisibility cloak");
             this.console.println("C - Chocolate frogs (Adds +10 Health)");
@@ -86,8 +87,9 @@ public class ItemMenuView extends View {
                 return false;
             case "W":
                 wandView();
-            case "H":
+
                 System.out.println(" 1. Marauder’s map (keep track of where you are.) \n 2. Invisibility cloak (Hides you from enemies for 3 moves.) \n 3. Antidotes (Heals you from dragon burns.) \n 4. Chocolate frogs (Heals you.) \n 5. Broom (Quickly move to any spot on the map.)");
+
                 this.console.println("Item functions \br 1.Marauder’s map (keep track of where you are) \n Invisibility cloak \n Potions (health) \n Antidotes (burn healing paste) \n Chocolate frogs and food \n Broom");
                 return false;
             case "E":
@@ -106,6 +108,9 @@ public class ItemMenuView extends View {
 
     private void wandView() {
 SelectSpellView selectSpellView  = new SelectSpellView();
-        selectSpellView.displaySelectSpellView();    
+        selectSpellView.display();    
                 }
 }
+
+
+

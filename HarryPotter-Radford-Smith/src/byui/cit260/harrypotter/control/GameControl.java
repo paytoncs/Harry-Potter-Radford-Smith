@@ -118,7 +118,6 @@ public class GameControl {
         map.setLocations(locations);
 
         Scene[] scenes = GameControl.createScenes();
-        GameControl.assignItemsToScenes(scenes, locations);
         GameControl.assignScenesToLocations(map, scenes);
 
         return map;
@@ -142,8 +141,8 @@ public class GameControl {
         int row;
         int col;
         if (HarryPotterRadfordSmith.getMyColumn() == 0 || HarryPotterRadfordSmith.getMyRow() == 0) {
-            col = 2;
-            row = 2;
+            col = 1;
+            row = 1;
         } else {
             col = HarryPotterRadfordSmith.getMyColumn();
             row = HarryPotterRadfordSmith.getMyRow();
@@ -175,28 +174,80 @@ public class GameControl {
         Scene scene6 = new Scene("You've encountered a boulder on the path!", "BO", "Boulder");
         scenes[SceneType.boulder_scene.ordinal()] = scene6;
 
-        Scene scene7 = new Scene("You've found an ingredient for Hagrid!", "IN", "Ingredient");
+        Scene scene7 = new Scene("You've found an ingredient for Hagrid!", "IT", "Ingredient");
         scenes[SceneType.found_main_item_scene.ordinal()] = scene7;
 
-        Scene scene8 = new Scene("This is where Hagrid is.", "HA", "Hagrid");
+        Scene scene8 = new Scene("You are where Hagrid is.", "HA", "Hagrid");
         scenes[SceneType.hagrid_scene.ordinal()] = scene8;
 
         return scenes;
-    }
-
-    public static void assignItemsToScenes(Scene[] scenes, Location[][] locations) {
-        System.out.println("assignItemsToScenes called");
     }
 
     public static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
         // hagrid_scene is where the end user will start
         locations[2][2].setScene(scenes[SceneType.hagrid_scene.ordinal()]);
+        // Scenes for entire top Row
+        locations[0][0].setScene(scenes[SceneType.spider_scene.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.dragon_scene.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.dementor_scene.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.boulder_scene.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.spider_scene.ordinal()]);
+        // Scenes for entire Second Row
+        locations[1][0].setScene(scenes[SceneType.chocolate_frog_scene.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.giant_scene.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.boulder_scene.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.dragon_scene.ordinal()]);
+        // Scenes for entire Third Row
+        locations[2][0].setScene(scenes[SceneType.found_main_item_scene.ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.dementor_scene.ordinal()]);
+        // [2][2] is where Hagrid is (the start point)
+        locations[2][3].setScene(scenes[SceneType.dementor_scene.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.chocolate_frog_scene.ordinal()]);
+        // Scenes for entire Fourth Row
+        locations[3][0].setScene(scenes[SceneType.giant_scene.ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.boulder_scene.ordinal()]);
+        locations[3][2].setScene(scenes[SceneType.spider_scene.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.found_main_item_scene.ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.chocolate_frog_scene.ordinal()]);
+        // Scenes for entire Row
+        locations[4][0].setScene(scenes[SceneType.found_main_item_scene.ordinal()]);
+        locations[4][1].setScene(scenes[SceneType.giant_scene.ordinal()]);
+        locations[4][2].setScene(scenes[SceneType.spider_scene.ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.boulder_scene.ordinal()]);
+        locations[4][4].setScene(scenes[SceneType.dragon_scene.ordinal()]);
 
-        locations[4][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
-        locations[3][3].setScene(scenes[SceneType.spider_scene.ordinal()]);
-        locations[2][1].setScene(scenes[SceneType.spider_scene.ordinal()]);
-        locations[3][4].setScene(scenes[SceneType.friendly_scene.ordinal()]);
+    }
+
+    public static Game getGame(String filePath) throws GameControlException, ClassNotFoundException {
+        Game game = null;
+        if (filePath == null) {
+            throw new GameControlException("FilePath cannot be null!!");
+        }
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
+            game = (Game) in.readObject();
+            HarryPotterRadfordSmith.setCurrentGame(game);
+            HarryPotterRadfordSmith.setPlayer(game.player);
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error message: " + ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        return game;
+    }
+
+    public static void saveGame(Game game, String filePath) throws GameControlException {
+        if (game == null || filePath == null || filePath.length() < 1) {
+            throw new GameControlException("Invalid inputs");
+        }
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            out.writeObject(game);
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error message: " + ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
 
     public static Game getGame(String filePath) throws GameControlException, ClassNotFoundException {

@@ -9,7 +9,6 @@ import byui.cit260.harrypotter.control.ActorControl;
 import static byui.cit260.harrypotter.control.ActorControl.addHealthItemsToHealth;
 import harrypotter.radford.smith.HarryPotterRadfordSmith;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelbyui.cit260.model.Game;
@@ -21,7 +20,19 @@ import modelbyui.cit260.model.Location;
  */
 class GameMenuView extends View {
 
+    void displayGameMenuView() {
 
+        boolean endView = false;
+        do {
+            String[] inputs = this.getInputs();
+            if (inputs == null) {
+                return;
+            }
+            endView = doAction(inputs);
+        } while (!endView);
+
+    }
+    @Override
     public String[] getInputs() {
 
         String[] inputs = new String[1];
@@ -52,6 +63,9 @@ class GameMenuView extends View {
             this.console.println("T - How much time do I have? ");
             this.console.println("H - Help");
             this.console.println("G - Save Game");
+
+            this.console.println("Y - Print out a list of spells");
+
             this.console.println("Q - Quit");
             try {
                 inputs[0] = keyboard.readLine();
@@ -79,6 +93,7 @@ class GameMenuView extends View {
         menuItem.toUpperCase();
         switch (inputs[0].toUpperCase()) {
 
+
             case "S":
                 spellList();
                 return false;
@@ -95,6 +110,13 @@ class GameMenuView extends View {
             case "G":
                 this.saveGame();
                 break;
+            case "Y":
+                printSpells();
+                break;
+            case "Q":
+                quitGame();
+            break;
+
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
                 break;
@@ -102,6 +124,11 @@ class GameMenuView extends View {
         return false;
     }
 
+    public static void quitGame() {
+        QuitGameView quitGame = new QuitGameView();
+        quitGame.display();
+    }
+    
     public static void startNewGame() {
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
@@ -109,7 +136,7 @@ class GameMenuView extends View {
 
     public static void spellList() {
         SelectSpellView selectSpellView = new SelectSpellView();
-        selectSpellView.displaySelectSpellView();
+        selectSpellView.display();
     }
 
     public static void itemList() {
@@ -120,6 +147,7 @@ class GameMenuView extends View {
     public static void mapView() {
         Game game = HarryPotterRadfordSmith.getCurrentGame();
         Location[][] locations = game.getMap().getLocations();
+        String blockDescription = "";
         int rowCount = game.getMap().getRowCount();
         int columnCount = game.getMap().getColumnCount();
         System.out.println("\t   Marauder's Map");
@@ -135,9 +163,9 @@ class GameMenuView extends View {
                     String symbol;
                     try {
                         symbol = locations[row][column].getScene().getDisplaySymbol();
+                        blockDescription = locations[row][column].getScene().getDescription();
                     } catch (NullPointerException e) {
 
-                        symbol = "  Payton";
 
                         symbol = "  ";
 
@@ -150,8 +178,18 @@ class GameMenuView extends View {
             System.out.print("|\n");
         }
         System.out.println("--------------------------------------");
+        System.out.println(blockDescription);
+        if (blockDescription == "You are where Hagrid is.") {
+            System.out.println("Congrats, you found Hagrid!!!");
+            System.exit(0);
+        }
     }
 
+    public static void printSpells() {
+        PrintSpellsView printSpells = new PrintSpellsView();
+        printSpells.display();
+    }
+    
     public static void healthView() {
         SelectHealthView selectHealthView = new SelectHealthView();
         selectHealthView.displaySelectHealthView();

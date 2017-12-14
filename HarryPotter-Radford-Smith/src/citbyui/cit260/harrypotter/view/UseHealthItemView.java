@@ -30,9 +30,11 @@ class UseHealthItemView extends View {
         boolean valid = false;
         while (valid == false) {
 
-            System.out.println("Y - Yes");
-            System.out.println("N - No, Return to game menu.");
-            System.out.println("W - How do health items work? ");
+            this.console.println("Y - Yes");
+            this.console.println("N - No, Return to game menu.");
+            this.console.println("W - How do health items work? ");
+            this.console.println("D - How much would this item help my health?");
+
 
             this.console.println("Y - Yes");
             this.console.println("N - No, Return to game menu.");
@@ -46,7 +48,9 @@ class UseHealthItemView extends View {
             }
             inputs[0].trim();
             if (inputs.length < 1) {
-                ErrorView.display(this.getClass().getName(), "**** You must enter a value. ***");
+
+                ErrorView.display(this.getClass().getName(),"**** You must enter a value. ***");
+
                 continue;
             }
             valid = true;
@@ -73,14 +77,18 @@ class UseHealthItemView extends View {
             System.out.println("Your new health is " + actorHealth + ".");
             return true;
             case "N":
-                return true;
-            case "W":
 
-                System.out.println("Health items will replenish your health once you have been damaged from encounters. Each health item provides 10 health points. ");
                 return false;
+            case "W":
+                this.console.println("Health items will replenish your health once you have been damaged from encounters. Each health item provides 10 health points. ");
+
+                return true;
+             
                 
             default:
-                ErrorView.display(this.getClass().getName(), "Invalid menu item");
+
+
+                ErrorView.display(this.getClass().getName(),"Invalid menu item");
                 break;
         }
         return false;
